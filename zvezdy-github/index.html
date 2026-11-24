@@ -6,7 +6,7 @@
 <title>ЗА ПРЕДЕЛАМИ ЗВЁЗД · А7 · 27 декабря 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Lora:ital,wght@0,400;0,500;1,400&amp;family=Marck+Script&amp;display=swap" rel="stylesheet">
 <style>
 /* ================= TOKENS ================= */
 :root{
@@ -62,9 +62,8 @@ h1,h2,h3,h4{font-family:var(--f-d);font-weight:400;line-height:1.02;letter-spaci
   text-shadow:none}
 .gold-txt{
   background:linear-gradient(96deg,#E6C98C 0%,#FFF6DF 20%,#E3C078 42%,#FFFBEE 60%,#DDBA72 80%,#FBECC9 100%);
-  background-size:220% 100%;-webkit-background-clip:text;background-clip:text;
-  -webkit-text-fill-color:transparent;color:transparent;animation:sheen 16s linear infinite}
-@keyframes sheen{to{background-position:220% 0}}
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent}
 p{max-width:64ch}
 .lead{font-size:clamp(15.5px,1.35vw,19px);line-height:1.68;color:var(--ink-2)}
 .on-dark .lead,.d-txt .lead{color:#D9CDBA}
@@ -73,53 +72,11 @@ p{max-width:64ch}
   line-height:1.5;color:var(--wine)}
 .quote.on-dark{color:var(--gold-l)}
 
-/* ================= ORNAMENTS ================= */
-.spark{position:absolute;pointer-events:none;color:var(--gold-l);opacity:.85}
-.spark svg{width:100%;height:100%;fill:currentColor}
-@keyframes twinkle{0%,100%{opacity:.25;transform:scale(.82)}50%{opacity:1;transform:scale(1)}}
-
-/* ================= SKY LAYERS ================= */
-#sky{position:fixed;inset:0;z-index:0;pointer-events:none}
-#flyers{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
-.flyer{position:absolute;will-change:transform;border-radius:50%}
-.fl-core{position:absolute;inset:0;border-radius:50%}
-.fl-ring{position:absolute;left:50%;top:50%;width:170%;aspect-ratio:1/.26;
-  transform:translate(-50%,-50%) rotate(-18deg);border-radius:50%;
-  border:1.4px solid transparent;
-  background:linear-gradient(100deg,rgba(246,230,192,.95),rgba(190,146,68,.1),rgba(246,230,192,.8),rgba(190,146,68,.08),rgba(246,230,192,.9)) border-box;
-  -webkit-mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude}
-
-
-/* ---- hero ornaments ---- */
-.orn{position:absolute;z-index:5;pointer-events:none;will-change:transform}
-.orn img{width:100%;display:block}
-@keyframes bob{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-20px) rotate(2deg)}}
-@keyframes bobS{0%,100%{transform:translateY(0) rotate(1deg)}50%{transform:translateY(-13px) rotate(-2deg)}}
-@keyframes spinSlow{to{transform:rotate(360deg)}}
-@keyframes tw{0%,100%{opacity:.2;transform:scale(.8)}50%{opacity:.95;transform:scale(1.06)}}
-
-.o-star{left:3.5vw;top:21%;width:clamp(150px,19vw,330px);
-  filter:drop-shadow(0 0 46px rgba(246,214,150,.5))}
-.o-star img{animation:spinSlow 120s linear infinite}
-.o-planet{right:2.5vw;top:12%;width:clamp(165px,21vw,360px);
-  filter:drop-shadow(0 0 52px rgba(240,200,120,.45))}
-.o-planet img{animation:bob 15s ease-in-out infinite}
-.o-sp{width:clamp(58px,7vw,124px);opacity:.75}
-.o-sp img{animation:tw 5.5s ease-in-out infinite}
-.sp1{left:24%;top:13%}
-.sp2{right:22%;top:54%;width:clamp(44px,5vw,92px)}
-.sp2 img{animation-delay:1.8s}
-.sp3{left:36%;bottom:16%;width:clamp(40px,4.4vw,78px);opacity:.6}
-.sp3 img{animation-delay:3.2s}
-.sp4{right:34%;top:24%;width:clamp(36px,4vw,66px);opacity:.55}
-.sp4 img{animation-delay:2.5s}
-
 /* ================= NAV ================= */
 .nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;
   justify-content:space-between;padding:16px var(--gap);
-  transition:background .6s var(--ease),border-color .6s var(--ease),backdrop-filter .6s}
-.nav.solid{background:rgba(244,237,225,.9);backdrop-filter:blur(16px);
+  transition:background .6s var(--ease),border-color .6s var(--ease)}
+.nav.solid{background:var(--cream);
   border-bottom:1px solid rgba(190,146,68,.28)}
 .brand{display:flex;align-items:center;gap:11px;font-family:var(--f-d);
   font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--cream);transition:color .6s}
@@ -141,7 +98,7 @@ p{max-width:64ch}
 .burger.x i:nth-child(1){transform:translateY(3px) rotate(45deg)}
 .burger.x i:nth-child(2){transform:translateY(-3px) rotate(-45deg)}
 
-.mm{position:fixed;inset:0;z-index:49;background:rgba(13,9,18,.97);backdrop-filter:blur(20px);
+.mm{position:fixed;inset:0;z-index:49;background:var(--night);
   display:flex;flex-direction:column;justify-content:center;padding:0 var(--gap);
   opacity:0;pointer-events:none;transition:opacity .5s var(--ease)}
 .mm.open{opacity:1;pointer-events:auto}
@@ -160,8 +117,6 @@ main{position:relative;z-index:3}
   background:radial-gradient(90% 70% at 70% 20%,rgba(190,146,68,.2),transparent 62%),
              radial-gradient(70% 60% at 10% 90%,rgba(142,59,47,.14),transparent 65%)}
 .dark>*{position:relative;z-index:2}
-.rv{opacity:0;transform:translateY(34px);transition:opacity 1.05s var(--ease),transform 1.05s var(--ease)}
-.rv.in{opacity:1;transform:none}
 .rule{height:1px;background:linear-gradient(90deg,transparent,rgba(190,146,68,.55),transparent);margin:0}
 
 /* ================= HERO ================= */
@@ -177,17 +132,14 @@ main{position:relative;z-index:3}
     rgba(246,230,192,.9) 56deg,rgba(255,240,210,1) 62deg,rgba(232,206,147,.45) 72deg,transparent 100deg);
   -webkit-mask:radial-gradient(circle,transparent 60.4%,#000 61%,#000 62.6%,transparent 63%);
   mask:radial-gradient(circle,transparent 60.4%,#000 61%,#000 62.6%,transparent 63%);
-  filter:blur(.4px) drop-shadow(0 0 26px rgba(246,230,192,.75))}
+}
 .flare{position:absolute;width:min(46vw,520px);aspect-ratio:1;border-radius:50%;
   right:12%;top:16%;pointer-events:none;
-  background:radial-gradient(circle,rgba(255,244,218,.85) 0%,rgba(232,206,147,.35) 18%,rgba(190,146,68,.12) 38%,transparent 66%);
-  animation:flarePulse 7s ease-in-out infinite}
-@keyframes flarePulse{0%,100%{opacity:.75;transform:scale(1)}50%{opacity:1;transform:scale(1.07)}}
+  background:radial-gradient(circle,rgba(255,244,218,.85) 0%,rgba(232,206,147,.35) 18%,rgba(190,146,68,.12) 38%,transparent 66%)}
 .horizon{position:absolute;left:0;right:0;bottom:0;height:34vh;pointer-events:none;z-index:3;
   background:radial-gradient(66% 100% at 50% 122%,rgba(255,247,228,.55) 0%,rgba(237,220,186,.28) 30%,transparent 62%)}
 .hero-photo{position:absolute;left:0;right:0;bottom:0;height:62%;z-index:2;
-  background-size:cover;background-position:center 42%;
-  filter:brightness(.58) saturate(.92) contrast(1.04);
+  background:linear-gradient(rgba(8,5,14,.4),rgba(8,5,14,.4)),url(hero.webp) center 42% / cover;
   -webkit-mask:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.55) 22%,#000 48%);
   mask:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.55) 22%,#000 48%)}
 .hero-scrim{position:absolute;inset:0;z-index:4;pointer-events:none;background:
@@ -198,14 +150,9 @@ main{position:relative;z-index:3}
   aspect-ratio:2.6/1;pointer-events:none;opacity:.9}
 .swoosh svg{width:100%;height:100%}
 
-.hero-in{position:relative;z-index:6;padding:84px var(--gap) clamp(84px,11vh,128px);width:100%;
+.hero-in{position:relative;z-index:6;padding:76px var(--gap) clamp(76px,9vh,112px);width:100%;
   text-shadow:0 2px 26px rgba(8,5,14,.85),0 1px 4px rgba(8,5,14,.6)}
 .hero .lbl{display:block;margin-bottom:22px}
-.hero h1{margin-bottom:22px;text-shadow:none;
-  filter:drop-shadow(0 3px 22px rgba(8,5,14,.75)) drop-shadow(0 0 70px rgba(222,180,100,.3))}
-.hero h1 .ln2{display:block;font-style:italic;margin-top:-.04em}
-.hero .lead{margin:0 auto 10px;max-width:52ch}
-.hero .lead.on-d{color:#EFE6D6}
 
 .count{display:flex;justify-content:center;gap:clamp(14px,3vw,46px);margin:30px 0 30px}
 .count div{min-width:58px}
@@ -216,14 +163,12 @@ main{position:relative;z-index:3}
 .cue{position:absolute;bottom:20px;left:50%;translate:-50% 0;z-index:7;display:flex;flex-direction:column;
   align-items:center;gap:9px;font-family:var(--f-d);font-size:9px;letter-spacing:.34em;
   text-transform:uppercase;color:rgba(239,230,214,.6)}
-.cue i{width:1px;height:34px;background:linear-gradient(180deg,rgba(239,230,214,.6),transparent);
-  animation:cueMove 2.4s ease-in-out infinite}
-@keyframes cueMove{0%,100%{transform:scaleY(.3);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+.cue i{width:1px;height:34px;background:linear-gradient(180deg,rgba(239,230,214,.6),transparent)}
 
 /* ================= BUTTONS ================= */
 .btn{display:inline-flex;align-items:center;gap:14px;padding:18px 34px;border-radius:50px;
   background:linear-gradient(100deg,#F3E2B6 0%,#C79A4B 32%,#F6E6C0 56%,#B98C3C 82%,#EFD9A4 100%);
-  background-size:220% 100%;color:#241A11;font-family:var(--f-d);font-size:12px;letter-spacing:.2em;
+  color:#241A11;font-family:var(--f-d);font-size:12px;letter-spacing:.2em;
   text-transform:uppercase;box-shadow:0 12px 40px rgba(190,146,68,.34);
   transition:transform .5s var(--ease),box-shadow .5s var(--ease),background-position 1s var(--ease)}
 .btn:hover{transform:translateY(-3px);background-position:100% 0;box-shadow:0 20px 54px rgba(190,146,68,.46)}
@@ -253,14 +198,14 @@ main{position:relative;z-index:3}
 .frame .ph{position:absolute;inset:0;background:
   radial-gradient(60% 50% at 30% 28%,rgba(246,230,192,.4),transparent 62%),
   radial-gradient(50% 40% at 76% 72%,rgba(190,146,68,.3),transparent 66%)}
-.frame .bgimg{position:absolute;inset:-10% 0;background-size:cover;background-position:center;will-change:transform}
+.frame .bgimg{position:absolute;inset:-10% 0;background-size:cover;background-position:center}
 .frame::after{content:'';position:absolute;inset:0;border:1px solid rgba(232,206,147,.3);
   border-radius:4px;pointer-events:none}
 
 /* ================= FULLBLEED ================= */
 .fb{position:relative;height:clamp(300px,66vh,660px);overflow:hidden;display:flex;
   align-items:center;justify-content:center;background:var(--night)}
-.fb .bgimg{position:absolute;inset:-12% 0;background-size:cover;background-position:center;will-change:transform}
+.fb .bgimg{position:absolute;inset:-12% 0;background-size:cover;background-position:center}
 .fb .ph{position:absolute;inset:0;background:
   radial-gradient(60% 70% at 28% 36%,rgba(246,230,192,.32),transparent 64%),
   radial-gradient(55% 60% at 78% 66%,rgba(190,146,68,.26),transparent 68%),
@@ -300,12 +245,10 @@ main{position:relative;z-index:3}
 .row .st{justify-self:end;font-family:var(--f-d);font-size:10px;letter-spacing:.24em;text-transform:uppercase;
   padding:6px 13px;border:1px solid rgba(232,206,147,.35);border-radius:40px;white-space:nowrap;
   color:rgba(232,206,147,.8)}
-.row .st.now{background:linear-gradient(100deg,#E8CE93,#BE9244);color:#1A1208;border-color:transparent;
-  animation:blink 2.6s ease-in-out infinite}
+.row .st.now{background:linear-gradient(100deg,#E8CE93,#BE9244);color:#1A1208;border-color:transparent}
 .row .st.secret{color:#EFD9A4;border-color:rgba(232,206,147,.6)}
 .row .st.secret::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%;
   background:var(--gold-l);margin-right:8px;vertical-align:middle;box-shadow:0 0 10px var(--gold-l)}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.55}}
 .board-foot{padding:16px clamp(18px,2.6vw,34px);border-top:1px solid rgba(232,206,147,.2);
   font-family:var(--f-d);font-size:10px;letter-spacing:.24em;text-transform:uppercase;
   color:rgba(205,191,172,.6);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
@@ -326,20 +269,70 @@ main{position:relative;z-index:3}
 
 
 /* hero: logo + event info */
-.hero-logo{width:clamp(76px,7.4vw,108px);height:auto;margin:0 auto 20px;
-  filter:drop-shadow(0 4px 22px rgba(8,5,14,.7))}
+.hero-when{display:grid;justify-items:center;gap:4px;margin:0 auto}
+.hero-when h1{font-size:clamp(30px,6vw,84px);line-height:1.06;color:var(--gold-xl);text-wrap:balance}
+.hero-time{font-family:var(--f-d);font-size:clamp(26px,4.25vw,60px);line-height:1.1;color:var(--gold-xl)}
+.hero-logos{display:flex;align-items:center;justify-content:center;gap:clamp(18px,2.6vw,36px);margin:0 auto clamp(18px,3vh,30px)}
+.hero-logo{height:clamp(58px,6vw,84px);width:auto;filter:drop-shadow(0 4px 22px rgba(8,5,14,.7))}
+.hero-logo.psb{height:clamp(28px,3vw,42px)}
+.hero-logos-sep{width:1px;height:clamp(40px,4.6vw,62px);background:linear-gradient(180deg,transparent,rgba(232,206,147,.7),transparent)}
+.hero-intro{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:center;max-width:920px;margin:clamp(28px,5vh,54px) auto;text-align:left;
+  column-gap:clamp(48px,8vw,112px)}
+.hero-intro::before{content:'';position:absolute;inset-block:0;inset-inline-start:50%;
+  width:1px;background:rgba(232,206,147,.48);transform:translateX(-50%)}
+.hero-name,.hero-slogan{white-space:nowrap}
+.hero-name{font-family:var(--f-d);font-size:clamp(22px,2.65vw,38px);
+  line-height:1.1;color:var(--cream)}
+.hero-slogan{font-family:'Marck Script',Georgia,serif;font-size:clamp(29px,3.1vw,44px);
+  line-height:1.15;color:var(--gold-xl);margin-top:8px}
+.hero-copy .lead{font-size:clamp(14px,1.15vw,16px);line-height:1.65;color:#EFE6D6;text-wrap:balance}
+.hero-copy .lead span{white-space:nowrap}
+.hero-copy .quote{margin-top:12px;font-size:17px;color:#F3E2B6}
+@media(min-width:1040px){
+  .hero-copy .quote{white-space:nowrap}
+}
+@media(max-width:680px){
+  .hero-intro{grid-template-columns:1fr;gap:20px;max-width:460px}
+  .hero-intro::before{display:none}
+  .hero-copy{border-block-start:1px solid rgba(232,206,147,.48);padding-top:18px}
+}
+@media(max-width:300px){
+  .hero-name,.hero-slogan{white-space:normal}
+}
 .hero-info{margin:20px auto 0;display:flex;flex-direction:column;align-items:center;gap:6px}
 .hero-info b{font-family:var(--f-d);font-weight:500;font-size:clamp(13px,1.45vw,18px);
   letter-spacing:.3em;text-transform:uppercase;color:var(--gold-xl)}
 .hero-info span{font-family:var(--f-d);font-size:clamp(11px,1.1vw,14px);letter-spacing:.26em;
   text-transform:uppercase;color:rgba(239,230,214,.82)}
 .hero-info i{font-style:normal;color:var(--gold);margin:0 .35em}
-.hero .count{margin:20px 0 24px}
+.hero .count{margin:16px 0 20px}
 
-/* dress code sketches */
-.sketch{margin:28px 0;border-radius:4px;overflow:hidden;border:1px solid rgba(190,146,68,.34);
-  box-shadow:0 30px 80px rgba(36,26,17,.18);background:#E9D9CC}
-.sketch img{width:100%;height:auto;display:block}
+/* Full-width dress code and programme sections */
+.image-slide{display:grid;isolation:isolate;background:#090b15;text-align:center;color:var(--cream)}
+.image-slide__media,.image-slide__content{grid-area:1/1;min-width:0}
+.image-slide__media{position:relative;align-self:start}
+.image-slide__media img{width:100%;height:auto}
+.image-slide__media::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(9,11,21,.85),transparent 29%)}
+#dress{overflow:hidden}
+#dress .image-slide__media{top:calc(-1 * clamp(24px,5vw,84px))}
+#dress .image-slide__media::after{
+  background:linear-gradient(180deg,rgba(9,11,21,.87),transparent 31%,transparent 66%,#090b15 100%)}
+.image-slide__content{z-index:1;width:100%;padding-block:clamp(34px,5vw,82px);
+  display:flex;flex-direction:column;align-items:center;justify-content:space-between}
+.image-slide__title .lbl{display:block;margin-bottom:10px}
+.image-slide__title h2{font-size:clamp(29px,5.2vw,82px);line-height:1.08;text-wrap:balance}
+.image-slide__copy{display:grid;grid-template-columns:1fr 1fr;gap:14px 36px;
+  max-width:980px;margin-top:24px;text-align:left}
+.image-slide__copy .lead{color:var(--cream)}
+.image-slide__copy b{font-weight:500;color:var(--gold-xl)}
+@media(max-width:700px){
+  .image-slide__content{padding-block:22px 32px}
+  #dress .image-slide__media{top:-18px;margin-top:30px}
+  #dress .image-slide__content{display:block}
+  .image-slide__copy{grid-template-columns:1fr;margin-top:calc(68vw - 44px)}
+}
 
 /* ================= FORM / TICKET ================= */
 .fgrid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(34px,5.5vw,86px);align-items:start}
@@ -357,29 +350,27 @@ main{position:relative;z-index:3}
   text-transform:uppercase;color:var(--wine);opacity:0;transition:.3s;font-family:var(--f-d)}
 .field.err .msg{opacity:1}
 
-.pass{position:relative;border-radius:6px;overflow:hidden;
-  background:linear-gradient(155deg,#17101F,#0B0710 58%,#1C1428);
-  border:1px solid rgba(232,206,147,.36);
-  box-shadow:0 34px 86px rgba(13,9,18,.44),inset 0 1px 0 rgba(246,230,192,.2)}
-.pass-top{padding:clamp(20px,2.7vw,30px);border-bottom:1px dashed rgba(232,206,147,.34);position:relative;
-  display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
-.pass-top::before,.pass-top::after{content:'';position:absolute;bottom:-11px;width:22px;height:22px;
-  border-radius:50%;background:var(--cream)}
-.pass-top::before{left:-11px}.pass-top::after{right:-11px}
-.pass-bot{padding:clamp(20px,2.7vw,30px);display:flex;gap:22px;align-items:center;flex-wrap:wrap}
-.qr{width:128px;height:128px;background:#F6EFE2;border-radius:4px;padding:8px;flex:0 0 auto;
+.pass{container-type:inline-size;display:grid;grid-template-rows:auto 1fr;aspect-ratio:16/10;
+  min-height:244px;background:#080e19 url(boarding-pass.webp) center / 100% 100% no-repeat}
+.pass-top{min-height:clamp(78px,20cqw,140px);padding:12px 8%;
+  display:flex;justify-content:space-between;align-items:center;gap:8px 16px;flex-wrap:wrap}
+.pass-top h3{margin-top:4px;font-size:clamp(17px,4.6cqw,30px)}
+.pass-number{font-family:var(--f-d);font-size:11px;color:var(--gold-xl);white-space:nowrap}
+.pass-bot{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;
+  gap:clamp(10px,4cqw,24px);padding:14px 8% 18px}
+.pass-details{min-width:0;background:linear-gradient(90deg,rgba(5,10,19,.8),rgba(5,10,19,.62));
+  padding:0 8px;border-radius:4px}
+.qr{width:clamp(72px,23cqw,128px);aspect-ratio:1;background:#F6EFE2;border-radius:4px;padding:8px;
   display:flex;align-items:center;justify-content:center}
 .qr canvas,.qr img,.qr svg{width:100%;height:100%}
-.prow{display:flex;justify-content:space-between;gap:16px;padding:8px 0;
-  border-bottom:1px solid rgba(232,206,147,.14);font-size:13px}
+.prow{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:baseline;column-gap:8px;padding:5px 0;
+  border-bottom:1px solid rgba(232,206,147,.22);font-size:clamp(11px,2.5cqw,14px);line-height:1.25}
 .prow:last-child{border:none}
-.prow span{font-family:var(--f-d);font-size:9px;letter-spacing:.24em;text-transform:uppercase;
-  color:rgba(232,206,147,.62);padding-top:3px}
-.prow b{font-weight:400;color:var(--cream);text-align:right;font-family:var(--f-d)}
+.prow span{font-family:var(--f-d);font-size:clamp(9px,2.1cqw,11px);color:var(--gold-xl)}
+.prow b{font-weight:400;color:var(--cream);text-align:right;font-family:var(--f-d);overflow-wrap:anywhere}
 .panel{border:1px solid rgba(190,146,68,.4);border-radius:4px;padding:clamp(24px,3vw,38px);
   background:linear-gradient(160deg,rgba(252,247,237,.985),rgba(242,233,216,.965))}
-.ok{display:none}.ok.on{display:block;animation:fadeUp .9s var(--ease) both}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.ok{display:none}.ok.on{display:block}
 .sent.off{display:none}
 
 /* ================= MAP ================= */
@@ -396,10 +387,6 @@ main{position:relative;z-index:3}
 .pin{position:relative;z-index:3;text-align:center;padding:0 20px}
 .pin .d{width:15px;height:15px;border-radius:50%;background:var(--gold-l);margin:0 auto 20px;position:relative;
   box-shadow:0 0 24px rgba(232,206,147,.9)}
-.pin .d::before,.pin .d::after{content:'';position:absolute;inset:-13px;border-radius:50%;
-  border:1px solid rgba(232,206,147,.5);animation:radar 3.2s ease-out infinite}
-.pin .d::after{animation-delay:1.6s}
-@keyframes radar{0%{transform:scale(.4);opacity:1}100%{transform:scale(3.4);opacity:0}}
 .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
 .infos{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:clamp(16px,2.2vw,28px);margin-top:44px}
 
@@ -421,10 +408,6 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
   .nav-links{display:none}
   .burger{display:flex}
   .hero{min-height:100svh}
-  .o-star{left:-6vw;top:13%;width:clamp(120px,34vw,190px);opacity:.75}
-  .o-planet{right:-5vw;top:7%;width:clamp(120px,36vw,200px);opacity:.8}
-  .sp3,.sp4{display:none}
-  .sp1{left:6%;top:9%}.sp2{right:8%;top:46%}
   .globe{width:230vw;top:-104vw}
   .flare{width:62vw;right:2%;top:12%}
   .board-head{display:none}
@@ -438,22 +421,20 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
   .acts .btn{width:auto}
 }
 @media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  *,*::before,*::after{transition-duration:.01ms!important}
 }
 </style>
 </head>
 <body>
 
-<canvas id="sky"></canvas>
-<div id="flyers"></div>
 
 <!-- ============ NAV ============ -->
 <nav class="nav" id="nav">
   <a href="#home" class="brand" data-go="home"><em>А7</em> · За пределами звёзд</a>
   <div class="nav-links">
     <a href="#home" data-go="home">Главная</a>
-    <a href="#prog" data-go="prog">Программа</a>
     <a href="#dress" data-go="dress">Dress code</a>
+    <a href="#prog" data-go="prog">Программа</a>
     <a href="#reg" data-go="reg">Билет</a>
     <a href="#map" data-go="map">Координаты</a>
   </div>
@@ -462,8 +443,8 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
 
 <div class="mm" id="mm">
   <a href="#home" data-go="home"><span>01</span>Главная</a>
-  <a href="#prog" data-go="prog"><span>02</span>Программа</a>
-  <a href="#dress" data-go="dress"><span>03</span>Dress code</a>
+  <a href="#dress" data-go="dress"><span>02</span>Dress code</a>
+  <a href="#prog" data-go="prog"><span>03</span>Программа</a>
   <a href="#reg" data-go="reg"><span>04</span>Билет</a>
   <a href="#map" data-go="map"><span>05</span>Координаты</a>
 </div>
@@ -473,9 +454,9 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
 <!-- ============ 01 HERO ============ -->
 <section class="hero" id="home">
   <div class="hero-sky">
-    <div class="globe par" data-depth="10"></div>
-    <div class="flare par" data-depth="26"></div>
-    <div class="swoosh par" data-depth="16">
+    <div class="globe"></div>
+    <div class="flare"></div>
+    <div class="swoosh">
       <svg viewBox="0 0 1200 460" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="sw" x1="0" y1="0" x2="1" y2="0">
@@ -490,26 +471,33 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
         <ellipse cx="600" cy="230" rx="470" ry="196" stroke="url(#sw)" stroke-width="1" opacity=".55" transform="rotate(9 600 230)"/>
       </svg>
     </div>
-    <div class="hero-photo" id="heroPhoto"></div>
+    <div class="hero-photo"></div>
     <div class="horizon"></div>
-    <div class="orn o-star par" data-depth="40"><img src="star-big.webp" alt=""></div>
-    <div class="orn o-planet par" data-depth="30"><img src="planet-gold.webp" alt=""></div>
-    <div class="orn o-sp sp1 par" data-depth="62"><img src="spark.webp" alt=""></div>
-    <div class="orn o-sp sp2 par" data-depth="54"><img src="spark.webp" alt=""></div>
-    <div class="orn o-sp sp3 par" data-depth="70"><img src="spark.webp" alt=""></div>
-    <div class="orn o-sp sp4 par" data-depth="48"><img src="spark.webp" alt=""></div>
     <div class="hero-scrim"></div>
   </div>
 
   <div class="hero-in on-dark">
-    <img class="hero-logo" src="logo-a7.webp" alt="А7 — Платформа международных платежей">
-    <span class="lbl on-dark">А7 · Новогодний вечер компании</span>
-    <h1 class="h-mega gold-fill">За пределами<span class="ln2">звёзд</span></h1>
-    <p class="lead on-d">Новый год — особенное время. Мы подводим итоги и одновременно смотрим в будущее: строим планы, ставим новые цели и позволяем себе мечтать о том, что сегодня кажется почти невозможным.</p>
-    <p class="quote on-dark" style="margin:20px auto 0;max-width:44ch;color:#F3E2B6">Но что, если однажды посмотреть ещё выше?</p>
+    <div class="hero-logos">
+      <img class="hero-logo" src="logo-a7.webp" alt="А7 — Платформа международных платежей">
+      <span class="hero-logos-sep"></span>
+      <img class="hero-logo psb" src="logo-psb.webp" alt="ПСБ">
+    </div>
+    <div class="hero-when">
+      <h1><time datetime="2026-12-27">27 декабря 2026</time></h1>
+      <time class="hero-time" datetime="2026-12-27T17:00:00+03:00">17:00</time>
+    </div>
+    <div class="hero-intro">
+      <div class="hero-title">
+        <p class="hero-name">Новогодний вечер<br>компании</p>
+        <p class="hero-slogan">За пределами звёзд</p>
+      </div>
+      <div class="hero-copy">
+        <p class="lead">Новый год — особенное время. Мы подводим итоги и одновременно смотрим в будущее: строим планы, ставим новые цели <span>и позволяем себе мечтать</span> о том, что сегодня кажется почти невозможным.</p>
+        <p class="quote on-dark">Но что, если однажды посмотреть ещё выше?</p>
+      </div>
+    </div>
 
     <div class="hero-info">
-      <b>27 декабря 2026 <i>·</i> Начало в 17:00</b>
       <span>ЦСКА Арена <i>·</i> ул. Автозаводская, 23А</span>
     </div>
 
@@ -525,62 +513,33 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
   <div class="cue"><span>Листайте</span><i></i></div>
 </section>
 
-<!-- ============ TERMINAL IMAGE (перед программой) ============ -->
-<div class="fb rv">
-  <div class="bgimg par-s" data-speed="0.13" data-img="terminal"><div class="ph"></div></div>
-</div>
-
-<!-- ============ 03 PROGRAMME / BOARD ============ -->
-<section class="sec" id="prog">
-  <div class="wrap">
-    <div class="sec-head rv" style="text-align:center">
-      <span class="lbl">Программа полёта</span>
-      <h2 class="h-xl" style="margin-top:18px">Маршрут <span class="it">среди звёзд</span></h2>
-      <p class="lead" style="margin:0 auto">Двенадцать этапов — одна незабываемая ночь. Маршрут проложен, но главные звёзды вечера пока остаются тайной. Следите за табло: на каждой орбите вас ждёт новый сюрприз.</p>
-    </div>
-
-    <div class="board rv">
-      <div class="board-top">
-        <h3>Departures</h3>
-        <div class="sat"><span>New Year Express</span> · <span>27.12.2026</span></div>
-      </div>
-      <div class="board-head">
-        <span>Время</span><span>Направление</span><span>Борт</span><span style="justify-self:end">Статус</span>
-      </div>
-      <div id="rows"></div>
-      <div class="board-foot">
-        <span>Посадка по персональному QR-билету</span>
-        <span>ЦСКА Арена · Москва</span>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ 04 DRESS CODE ============ -->
-<section class="sec" id="dress">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="lbl">Dress code</span>
-      <h2 class="h-xl" style="margin-top:18px">Космический <span class="it">шик</span></h2>
-      <p class="lead"><b style="font-weight:500;color:var(--gold-d)">Galactic Smart Casual.</b> Выбирайте образ, который будто создан для вечера среди звёзд. Серебро, металлик, чёрный и глубокий синий, мерцающие фактуры и футуристичные детали — всё это идеально впишется в атмосферу нашей новой галактики.</p>
+<section class="image-slide on-dark" id="dress">
+  <div class="image-slide__media">
+    <img src="dresscode.webp" width="1680" height="1254" decoding="async" alt="Образы для вечера: серебристое и красное платья, платье с синими пайетками, чёрный и тёмно-синий костюмы" loading="lazy">
+  </div>
+  <div class="wrap image-slide__content">
+    <div class="image-slide__title">
+      <span class="lbl on-dark">Dress code</span>
+      <h2>Космический <span class="it">шик</span></h2>
     </div>
-
-    <figure class="sketch rv">
-      <img src="dresscode-sketches.webp" alt="Скетчи образов для вечера: платье цвета серебра, чёрный костюм, синее платье с пайетками, костюм глубокого синего цвета" loading="lazy">
-    </figure>
-
-    <p class="lead rv">Скафандр необязателен. Достаточно одной выразительной детали, которая сделает ваш образ по-настоящему неземным. И главное — выбирайте то, в чём будете чувствовать себя комфортно весь вечер.</p>
+    <div class="image-slide__copy">
+      <p class="lead"><b>Galactic Smart Casual.</b> Выбирайте образ, который будто создан для вечера среди звёзд. Серебро, металлик, чёрный и глубокий синий, мерцающие фактуры и футуристичные детали — всё это идеально впишется в атмосферу нашей новой галактики.</p>
+      <p class="lead">Скафандр необязателен. Достаточно одной выразительной детали, которая сделает ваш образ по-настоящему неземным. И главное — выбирайте то, в чём будете чувствовать себя комфортно весь вечер.</p>
+    </div>
   </div>
 </section>
 
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="lbl">Обязательно возьми с собой</span>
-      <h2 class="h-l" style="margin-top:18px">Самый важный багаж<br>не помещается <span class="it">в чемодан</span></h2>
-      <p class="lead">Ничего тяжёлого.</p>
+<!-- ============ 03 PROGRAMME ============ -->
+<section class="image-slide on-dark" id="prog">
+  <div class="image-slide__media">
+    <img src="program-stand.webp" width="1680" height="1206" decoding="async" alt="Стенд-афиша: приглашаем на новую орбиту праздника. Секретные звёздные появления, космическая шоу-программа, галактические бары и авторские коктейли, орбитальный фуршет, розыгрыш межзвёздных призов" loading="lazy">
+  </div>
+  <div class="wrap image-slide__content">
+    <div class="image-slide__title">
+      <span class="lbl on-dark">Программа</span>
+      <h2>Вечер на <span class="it">новой орбите</span></h2>
     </div>
-    <div class="grid6" id="bag"></div>
   </div>
 </section>
 
@@ -597,7 +556,6 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
       <div class="sent rv" id="formBlock">
         <form id="regForm" novalidate>
           <div class="field"><input type="text" id="f-name" autocomplete="name"><label for="f-name">Фамилия и имя</label><span class="msg">Заполните</span></div>
-          <div class="field"><input type="tel" id="f-phone" autocomplete="tel"><label for="f-phone">Телефон</label><span class="msg">Заполните</span></div>
           <div class="field"><input type="email" id="f-mail" autocomplete="email"><label for="f-mail">E-mail</label><span class="msg">Проверьте</span></div>
           <div class="field"><input type="text" id="f-comp" autocomplete="organization"><label for="f-comp">Компания</label><span class="msg">Заполните</span></div>
           <button class="btn" type="submit" style="margin-top:12px">Зарегистрироваться <i></i></button>
@@ -618,18 +576,18 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
           <div class="pass-top">
             <div>
               <span class="lbl on-dark">Boarding pass</span>
-              <h3 class="h-m" style="margin-top:10px;color:var(--cream)">New Year Express</h3>
+              <h3>New Year Express</h3>
             </div>
-            <span style="font-family:var(--f-d);font-size:10px;letter-spacing:.24em;color:rgba(232,206,147,.7)">№ <span id="tkNo">—</span></span>
+            <span class="pass-number">№ <span id="tkNo">—</span></span>
           </div>
           <div class="pass-bot">
-            <div class="qr" id="qrBox"></div>
-            <div style="flex:1;min-width:195px">
+            <div class="pass-details">
               <div class="prow"><span>Гость</span><b id="tkName">—</b></div>
               <div class="prow"><span>Компания</span><b id="tkComp">—</b></div>
               <div class="prow"><span>Вылет</span><b>27.12.2026 · 17:00</b></div>
               <div class="prow"><span>Терминал</span><b>ЦСКА Арена<br>ул. Автозаводская, 23А</b></div>
             </div>
+            <div class="qr" id="qrBox"></div>
           </div>
         </div>
         <p class="small" style="margin-top:16px;color:rgba(205,191,172,.65)">Предъявите QR-код при входе.</p>
@@ -664,16 +622,6 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
       <a class="btn btn-o" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=ЦСКА+Арена+улица+Автозаводская+23А+Москва">Google Maps <i></i></a>
       <button class="btn" data-go="reg">Мой билет <i></i></button>
     </div>
-
-    <div class="infos">
-      <div class="panel rv"><span class="lbl">Дата</span>
-        <h4 class="h-m" style="margin-top:12px">27 декабря 2026</h4>
-        <p class="small" style="margin-top:7px">Сбор гостей с 17:00</p></div>
-      <div class="panel rv"><span class="lbl">Гардероб</span>
-        <p class="small" style="margin-top:12px">На площадке работают гардеробные комнаты: можно оставить вещи или переодеться до начала мероприятия.</p></div>
-      <div class="panel rv"><span class="lbl">Перед выездом</span>
-        <p class="small" style="margin-top:12px">Рекомендуем проверить прогноз погоды и заранее построить маршрут.</p></div>
-    </div>
   </div>
 </section>
 
@@ -686,19 +634,8 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
 </footer>
 
 <script>
-/* ============ IMAGE SLOTS ============ */
-const IMAGES={ terminal:"terminal.webp" };
-(function(){
-  const hp=document.getElementById('heroPhoto');
-  if(hp) hp.style.backgroundImage="url(hero.webp)";
-  document.querySelectorAll('[data-img]').forEach(el=>{
-    const k=el.dataset.img;
-    if(IMAGES[k]){ el.style.backgroundImage='url('+IMAGES[k]+')'; el.querySelector('.ph')?.remove(); }
-  });
-})();
-
 /* ============ NAV / SCROLL ============ */
-const SECS=['home','prog','dress','reg','map'];
+const SECS=['home','dress','prog','reg','map'];
 function go(id){
   const el=document.getElementById(id); if(!el)return;
   closeMenu();
@@ -726,129 +663,13 @@ burger.addEventListener('click',()=>{
   if(o) mm.querySelectorAll('a').forEach((a,i)=>a.style.transitionDelay=(i*55+70)+'ms');
 });
 
-/* ============ STARFIELD (warm) ============ */
-(function(){
-  const c=document.getElementById('sky'),x=c.getContext('2d');
-  let w,h,st=[],dpr=Math.min(devicePixelRatio||1,2);
-  function size(){
-    w=c.width=innerWidth*dpr;h=c.height=innerHeight*dpr;
-    c.style.width=innerWidth+'px';c.style.height=innerHeight+'px';
-    const n=Math.min(200,Math.round(innerWidth*innerHeight/9000));
-    st=Array.from({length:n},()=>({x:Math.random()*w,y:Math.random()*h,
-      r:(Math.random()*1.25+.25)*dpr,a:Math.random(),s:Math.random()*.013+.004,
-      g:Math.random()>.5}));
-  }
-  function draw(){
-    x.clearRect(0,0,w,h);
-    for(const s of st){
-      s.a+=s.s; const o=.2+Math.abs(Math.sin(s.a))*.7;
-      x.beginPath();x.arc(s.x,s.y,s.r,0,6.283);
-      x.fillStyle=s.g?'rgba(232,206,147,'+o+')':'rgba(255,250,240,'+o*.7+')';
-      x.shadowBlur=s.g?6*dpr:0; x.shadowColor='rgba(232,206,147,.8)';
-      x.fill();
-    }
-    x.shadowBlur=0;requestAnimationFrame(draw);
-  }
-  size();draw();addEventListener('resize',size);
-})();
-
-/* ============ FLYING PLANETS ============ */
-(function(){
-  const host=document.getElementById('flyers');
-  // from: start of travel (0..1 of page scroll), to: end — planet crosses the screen within that window
-  const P=[
-    {size:300, y:18, from:.02, to:.42, dir: 1, ring:true,  tone:'gold',  z:.9,  spin:28},
-    {size:170, y:62, from:.10, to:.58, dir:-1, ring:false, tone:'pale',  z:.55, spin:-34},
-    {size:430, y:34, from:.30, to:.82, dir:-1, ring:true,  tone:'deep',  z:.75, spin:22},
-    {size:120, y:78, from:.38, to:.70, dir: 1, ring:false, tone:'gold',  z:.45, spin:40},
-    {size:240, y:24, from:.58, to:1.0, dir: 1, ring:true,  tone:'pale',  z:.65, spin:-26}
-  ];
-  const TONE={
-    gold:'radial-gradient(circle at 34% 30%,#F7E7C2,#DFBE84 26%,#B08C45 56%,#5F4820 82%,#2A1E0C)',
-    pale:'radial-gradient(circle at 36% 32%,#FBF1DC,#E6D2A8 28%,#BFA169 58%,#6A5327 84%,#2B2113)',
-    deep:'radial-gradient(circle at 32% 28%,#E3C793,#AE8942 32%,#6A4F1F 62%,#2C2010)'
-  };
-
-  const els=P.map(p=>{
-    const d=document.createElement('div');
-    d.className='flyer';
-    d.style.width=p.size+'px'; d.style.height=p.size+'px';
-    d.style.top='calc('+p.y+'% - '+(p.size/2)+'px)';
-    d.style.left='0';
-    d.style.opacity=(.16+p.z*.3).toFixed(2);
-    d.style.filter='blur('+((1-p.z)*2.2).toFixed(1)+'px) drop-shadow(0 0 '+Math.round(p.size/5)+'px rgba(190,146,68,.35))';
-    const core=document.createElement('div');
-    core.className='fl-core'; core.style.background=TONE[p.tone];
-    core.style.boxShadow='inset '+(-p.size/9)+'px '+(-p.size/12)+'px '+(p.size/4)+'px rgba(0,0,0,.72)';
-    d.appendChild(core);
-    if(p.ring){const r=document.createElement('div');r.className='fl-ring';d.appendChild(r);}
-    host.appendChild(d); return d;
-  });
-
-  let raf=false;
-  function place(){
-    const max=Math.max(1,document.body.scrollHeight-innerHeight);
-    const prog=Math.min(1,Math.max(0,scrollY/max));
-    P.forEach((p,i)=>{
-      const span=p.to-p.from;
-      let t=(prog-p.from)/span;             // 0..1 inside its own window
-      t=Math.min(1.25,Math.max(-.25,t));
-      const travel=innerWidth+p.size*1.6;
-      const x=p.dir>0 ? -p.size*1.3+t*travel : innerWidth+p.size*.3-t*travel;
-      const drift=Math.sin(t*Math.PI)*p.size*.18;
-      els[i].style.transform='translate3d('+x.toFixed(1)+'px,'+drift.toFixed(1)+'px,0) rotate('+(t*p.spin).toFixed(1)+'deg)';
-      els[i].style.visibility=(t<-.2||t>1.2)?'hidden':'visible';
-    });
-    raf=false;
-  }
-  addEventListener('scroll',()=>{if(!raf){requestAnimationFrame(place);raf=true;}},{passive:true});
-  addEventListener('resize',place);
-  place();
-})();
-
-/* ============ MOUSE PARALLAX (hero) ============ */
-(function(){
-  const L=document.querySelectorAll('.par');
-  let tx=0,ty=0,cx=0,cy=0,go=false;
-  addEventListener('mousemove',e=>{tx=e.clientX/innerWidth-.5;ty=e.clientY/innerHeight-.5;go=true},{passive:true});
-  addEventListener('touchmove',e=>{if(!e.touches[0])return;
-    tx=e.touches[0].clientX/innerWidth-.5;ty=e.touches[0].clientY/innerHeight-.5;go=true},{passive:true});
-  (function loop(){
-    cx+=(tx-cx)*.05; cy+=(ty-cy)*.05;
-    if(go) L.forEach(l=>{
-      const d=parseFloat(l.dataset.depth||10);
-      const base=l.classList.contains('globe')||l.classList.contains('swoosh')?'translate(-50%,0) ':'';
-      l.style.transform=(l.classList.contains('swoosh')?'translate(-50%,-50%) ':base)+
-        'translate3d('+(-cx*d)+'px,'+(-cy*d*.7)+'px,0)';
-    });
-    requestAnimationFrame(loop);
-  })();
-})();
-
-/* ============ SCROLL PARALLAX (images) ============ */
-let tick=false;
-function onScroll(){
-  document.querySelectorAll('.par-s').forEach(el=>{
-    const sp=parseFloat(el.dataset.speed||.12);
-    const r=el.getBoundingClientRect();
-    const off=r.top+r.height/2-innerHeight/2;
-    el.style.transform='translate3d(0,'+(-off*sp)+'px,0)';
-  });
-  nav.classList.toggle('solid',scrollY>innerHeight*.72);
-  tick=false;
+/* Update the navigation background when the page crosses the hero. */
+function updateNav(){
+  const solid=scrollY>innerHeight*.72;
+  if(nav.classList.contains('solid')!==solid) nav.classList.toggle('solid',solid);
 }
-addEventListener('scroll',()=>{if(!tick){requestAnimationFrame(onScroll);tick=true}},{passive:true});
-addEventListener('resize',onScroll);
-
-/* ============ REVEAL ============ */
-const io=new IntersectionObserver(es=>es.forEach(e=>{
-  if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
-}),{threshold:.1,rootMargin:'0px 0px -7% 0px'});
-function initReveal(){
-  document.querySelectorAll('.rv:not(.in)').forEach((el,i)=>{
-    el.style.transitionDelay=(Math.min(i,5)*65)+'ms'; io.observe(el);
-  });
-}
+addEventListener('scroll',updateNav,{passive:true});
+addEventListener('resize',updateNav);
 
 /* ============ COUNTDOWN ============ */
 (function(){
@@ -867,50 +688,6 @@ function initReveal(){
   }
   tick();setInterval(tick,1000);
 })();
-
-/* ============ DEPARTURES BOARD ============ */
-const PROG=[
- ['17:00','18:30','Открытие космопорта','Сбор гостей и welcome-зона','Терминал','BOARDING','now'],
- ['18:30','19:15','Обратный отсчёт','Стартовая шоу-программа','Шоу','ON TIME',''],
- ['19:15','20:00','Первый звёздный сигнал','Секретный музыкальный гость','Борт 01','SECRET','secret'],
- ['20:00','20:30','Выход на орбиту','Космическое шоу','Шоу','ON TIME',''],
- ['20:30','21:15','Гравитация эмоций','Секретный музыкальный гость','Борт 02','SECRET','secret'],
- ['21:15','21:35','Межгалактический переход','Шоу-программа','Шоу','ON TIME',''],
- ['21:35','22:00','Тайное созвездие','Секретный музыкальный гость','Борт 03','SECRET','secret'],
- ['22:00','22:20','Вспышка сверхновой','Шоу-программа','Шоу','ON TIME',''],
- ['22:20','23:05','Парад планет','Секретный музыкальный гость','Борт 04','SECRET','secret'],
- ['23:05','23:15','Последний манёвр','Шоу-программа','Шоу','ON TIME',''],
- ['23:15','00:15','Ночная орбита','DJ-сет: имя — сюрприз','Орбита','SECRET','secret'],
- ['00:15','00:30','Мягкая посадка','Лаундж и завершение вечера','Лаундж','LANDING','']
-];
-document.getElementById('rows').innerHTML=PROG.map(p=>`
-  <div class="row rv">
-    <div class="tm">${p[0]}<span style="opacity:.5"> – ${p[1]}</span></div>
-    <div class="ds">${p[2]}<em>${p[3]}</em></div>
-    <div class="gt">${p[4]}</div>
-    <div class="st ${p[6]}">${p[5]}</div>
-  </div>`).join('');
-
-/* ============ TAKE WITH YOU ============ */
-const IC={
- star:'<svg viewBox="0 0 40 40"><path d="M20 3l3.2 13.8L37 20l-13.8 3.2L20 37l-3.2-13.8L3 20l13.8-3.2z"/></svg>',
- orbit:'<svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="7.5"/><ellipse cx="20" cy="20" rx="17" ry="6" transform="rotate(-20 20 20)"/></svg>',
- comet:'<svg viewBox="0 0 40 40"><circle cx="27" cy="13" r="5.5"/><path d="M21 19L5 34M24 23l-9 8M17 16L6 22"/></svg>',
- moon:'<svg viewBox="0 0 40 40"><path d="M26 5a15 15 0 100 30 12 12 0 010-30z"/><circle cx="29" cy="14" r="1.8"/><circle cx="31" cy="24" r="1.3"/></svg>',
- constel:'<svg viewBox="0 0 40 40"><circle cx="8" cy="10" r="1.8"/><circle cx="20" cy="20" r="1.8"/><circle cx="32" cy="12" r="1.8"/><circle cx="26" cy="32" r="1.8"/><circle cx="11" cy="29" r="1.8"/><path d="M8 10l12 10 12-8M20 20l6 12-15-3z"/></svg>',
- rocket:'<svg viewBox="0 0 40 40"><path d="M20 4c5.6 4.8 8.6 11.6 8.6 18.4L25 27H15l-3.6-4.6C11.4 15.6 14.4 8.8 20 4z"/><circle cx="20" cy="17" r="3"/><path d="M15 28l-4 8 6-3M25 28l4 8-6-3"/></svg>'
-};
-const BAG=[
- ['01','Любопытство','Новая галактика полна открытий.','star','g5'],
- ['02','Лёгкость на подъём','Земное притяжение оставим за дверью.','orbit','g7'],
- ['03','Чувство юмора','Оно пригодится даже в открытом космосе.','comet','g7'],
- ['04','Смелость сиять','В этот вечер звёзд будет особенно много.','moon','g5'],
- ['05','Готовность к встречам','Самые яркие созвездия рождаются из знакомств.','constel','g4'],
- ['06','Праздничный настрой','Главное топливо для полёта в 2027-й.','rocket','g8']
-];
-document.getElementById('bag').innerHTML=BAG.map(b=>`
-  <div class="card rv ${b[4]}"><span class="num">${b[0]}</span>
-    <div class="ic">${IC[b[3]]}</div><h4>${b[1]}</h4><p>${b[2]}</p></div>`).join('');
 
 /* ============ FORM + QR ============ */
 const form=document.getElementById('regForm');
@@ -937,7 +714,7 @@ function drawQR(text){
 form.addEventListener('submit',e=>{
   e.preventDefault();
   const v=id=>document.getElementById(id);let ok=true;
-  [['f-name',s=>s.trim().length>1],['f-phone',s=>s.replace(/\D/g,'').length>=10],
+  [['f-name',s=>s.trim().length>1],
    ['f-mail',s=>/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(s)],['f-comp',s=>s.trim().length>1]]
   .forEach(([id,t])=>{const el=v(id),g=t(el.value);el.parentElement.classList.toggle('err',!g);if(!g)ok=false});
   if(!ok)return;
@@ -959,7 +736,7 @@ drawQR('ZA-PREDELAMI-ZVEZD|PREVIEW|27.12.2026');
 })();
 
 /* ============ BOOT ============ */
-initReveal(); onScroll();
+updateNav();
 if(location.hash) setTimeout(()=>go(location.hash.replace('#','')),140);
 </script>
 </body>
