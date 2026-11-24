@@ -323,10 +323,12 @@ main{position:relative;z-index:3}
 .dress-intro{grid-column:1/-1;text-align:center}
 #dress h3,#dress h4{font-family:var(--f-d);font-size:clamp(17px,2.5vw,34px);color:var(--gold-xl);margin-bottom:5px}
 #dress h4{font-size:clamp(16px,1.75vw,25px)}
-#prog .suit-logo{position:absolute;z-index:1;object-fit:contain}
-#prog .suit-logo{width:1.15%;height:1.2%;left:23.3%;top:33.5%;transform:rotate(28deg)}
 #reg::before{background:linear-gradient(90deg,rgba(15,12,18,.15),rgba(15,12,18,.25)),
   url(registration.webp) center / cover no-repeat}
+#reg #open-registration[hidden]{display:none}
+#reg .reg-access{margin-bottom:10px;font-weight:600;color:var(--cream)}
+.support-note{background:var(--night);color:var(--cream);padding:32px var(--gap);border-top:1px solid rgba(190,146,68,.24)}
+.support-note p{margin-inline:auto;text-align:center;max-width:76ch}
 #reg .sent{background:rgba(13,9,18,.73);padding:clamp(16px,3vw,36px);border-radius:6px}
 #reg .field input,#reg .field select{color:var(--cream)}
 #reg .field label{color:var(--gold-l)}
@@ -371,6 +373,11 @@ main{position:relative;z-index:3}
 .mapbox{position:relative;width:100%;height:var(--console-height);
   margin-top:calc(var(--console-height) * -.25);
   background:#080708 url(map-frame.webp) center / 100% 100% no-repeat}
+.map-address{margin-bottom:12px;color:var(--gold-xl)}
+.map-orbit{position:absolute;pointer-events:none;left:10%;top:29%;width:80%;height:24%;
+  border-top:1px dashed rgba(232,206,147,.65);border-radius:50%;transform:rotate(-4deg)}
+.map-orbit::after{content:'';position:absolute;right:17%;top:5%;width:6px;height:6px;
+  border-radius:50%;background:var(--gold-xl);box-shadow:0 0 12px var(--gold)}
 .map-screen{position:absolute;inset:37.6% 19.8% 22%;overflow:hidden;background:#161b22}
 .map-screen iframe{display:block;width:100%;height:100%;border:0;color-scheme:dark}
 #map .acts{justify-content:center}
@@ -508,7 +515,7 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
     </div>
   </div>
   <div class="image-slide__media">
-    <img src="dresscode.webp" width="1448" height="1086" decoding="async" alt="Праздничные образы: золотые, серебристые, красные и синие платья, классические костюмы и блестящие пиджаки" loading="lazy">
+    <img src="dresscode.webp" width="1448" height="1086" decoding="async" alt="Праздничные образы: золотые, серебристые, чёрные, белые и синие платья, классические костюмы и блестящие пиджаки" loading="lazy">
   </div>
 </section>
 
@@ -516,7 +523,6 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
 <section class="image-slide on-dark" id="prog">
   <div class="image-slide__media">
     <img src="program-stand.webp" width="1479" height="1064" decoding="async" alt="Стенд-афиша: приглашаем на новую орбиту праздника. Секретные звёздные появления, космическая шоу-программа, галактические бары и авторские коктейли, орбитальный фуршет, розыгрыш межзвёздных призов" loading="lazy">
-    <img class="suit-logo" src="logo-a7.webp" alt="" loading="lazy">
   </div>
   <div class="wrap image-slide__content">
     <div class="image-slide__title">
@@ -532,11 +538,14 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
     <div class="sec-head rv">
       <span class="lbl on-dark">Регистрация</span>
       <h2 class="h-xl" style="margin-top:18px">Ваш билет <span class="it">в космос</span></h2>
-      <p class="lead">До старта осталось совсем немного. Заполните короткую форму, чтобы получить персональный электронный билет с QR-кодом. Он станет вашим пропуском на борт.</p>
+      <p class="lead reg-access">Мероприятие только для сотрудников группы компаний А7.</p>
+      <p class="lead">Заполните форму регистрации, чтобы получить QR-код. Он является вашим пропуском на мероприятие. Без QR-кода вход на площадку мероприятия невозможен.</p>
     </div>
 
     <div class="fgrid">
-      <div class="sent rv" id="formBlock">
+      <div>
+        <button class="btn" type="button" id="open-registration" aria-controls="formBlock" aria-expanded="false">Пройти регистрацию <i></i></button>
+        <div class="sent rv" id="formBlock" hidden>
         <form id="regForm" novalidate>
           <div class="field"><input type="text" id="f-name" autocomplete="name"><label for="f-name">Фамилия и имя</label><span class="msg">Заполните</span></div>
           <div class="field"><input type="email" id="f-mail" autocomplete="email"><label for="f-mail">E-mail</label><span class="msg">Проверьте</span></div>
@@ -555,6 +564,7 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
           <p id="reg-error" role="alert" hidden></p>
           <p class="small" style="margin-top:20px;color:rgba(205,191,172,.65)">Все поля обязательны. QR-код появится на этой странице.</p>
         </form>
+        </div>
       </div>
 
       <div class="ok" id="okBlock">
@@ -576,14 +586,15 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
 <!-- ============ 06 MAP ============ -->
 <section class="sec dark on-dark" id="map">
   <div class="wrap map-heading">
-    <div class="sec-head rv">
-      <span class="lbl on-dark">Координаты старта</span>
-      <h2 class="h-xl" style="margin-top:18px">Точка старта — <span class="it">Земля</span></h2>
-      <p class="lead">Следующая остановка — за пределами звёзд. А пока наш космодром ждёт вас в самом сердце Москвы. Постройте маршрут заранее и не забудьте персональный QR-билет — он понадобится для входа.</p>
+    <div class="sec-head">
+      <span class="lbl on-dark">Локация</span>
+      <h2 class="h-xl">ЦСКА Арена</h2>
+      <p class="lead map-address">Москва, ул. Автозаводская, 23А</p>
+      <p class="lead">Постройте маршрут заранее.<br>Не забудьте пригласительный билет с QR-кодом.</p>
     </div>
-
   </div>
   <div class="mapbox">
+    <div class="map-orbit" aria-hidden="true"></div>
     <div class="map-screen">
       <iframe title="Яндекс Карты — ЦСКА Арена, Автозаводская улица, 23А"
         src="https://yandex.ru/map-widget/v1/?mode=poi&amp;poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1425831484&amp;theme=dark"
@@ -600,6 +611,10 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
 </section>
 
 </main>
+
+<aside class="support-note" aria-label="Техническая поддержка">
+  <p>Если после регистрации билет не пришёл на электронную почту, обратитесь в техническую поддержку. <span>[Адрес электронной почты техподдержки]</span></p>
+</aside>
 
 <footer>
   <span>А7 · За пределами звёзд</span>
@@ -665,6 +680,13 @@ addEventListener('resize',updateNav);
 
 /* ============ FORM + QR ============ */
 const form=document.getElementById('regForm');
+const openRegistration=document.getElementById('open-registration');
+openRegistration.addEventListener('click',()=>{
+  document.getElementById('formBlock').hidden=false;
+  openRegistration.setAttribute('aria-expanded','true');
+  openRegistration.hidden=true;
+  document.getElementById('f-name').focus();
+});
 document.querySelectorAll('.field input,.field select').forEach(i=>i.addEventListener('input',()=>{
   i.classList.toggle('filled',!!i.value); i.parentElement.classList.remove('err');
 }));
