@@ -121,35 +121,18 @@ main{position:relative;z-index:3}
 
 /* ================= HERO ================= */
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;
-  text-align:center;overflow:hidden;background:
-    radial-gradient(120% 90% at 50% 112%,#F6E9D2 0%,#D9C5A2 16%,#6E5B6B 38%,#241A2E 62%,#0D0912 85%)}
-.hero-sky{position:absolute;inset:0;overflow:hidden}
-.globe{position:absolute;left:50%;top:-62vw;width:142vw;aspect-ratio:1;translate:-50% 0;border-radius:50%;
-  background:radial-gradient(circle at 50% 50%,#0A0710 0%,#0C0814 61%,rgba(12,8,20,0) 64%);
-  box-shadow:0 0 0 1px rgba(232,206,147,.16),0 40px 120px rgba(0,0,0,.6)}
-.globe::after{content:'';position:absolute;inset:0;border-radius:50%;
-  background:conic-gradient(from 60deg at 50% 50%,transparent 0deg,rgba(246,230,192,.0) 30deg,
-    rgba(246,230,192,.9) 56deg,rgba(255,240,210,1) 62deg,rgba(232,206,147,.45) 72deg,transparent 100deg);
-  -webkit-mask:radial-gradient(circle,transparent 60.4%,#000 61%,#000 62.6%,transparent 63%);
-  mask:radial-gradient(circle,transparent 60.4%,#000 61%,#000 62.6%,transparent 63%);
+  text-align:center;overflow:hidden;background:#221c28}
+.hero-sky{position:absolute;inset:0;background:
+  radial-gradient(ellipse at 50% 42%,rgba(82,56,49,.24),transparent 62%),
+  url(hero.webp) center / cover no-repeat}
+.hero-ship{position:absolute;right:4%;top:23%;width:clamp(104px,17vw,275px);height:auto;pointer-events:none}
+@media(max-width:900px){
+  .hero-ship{top:17%;right:2%;width:clamp(78px,14vw,128px);opacity:.7}
 }
-.flare{position:absolute;width:min(46vw,520px);aspect-ratio:1;border-radius:50%;
-  right:12%;top:16%;pointer-events:none;
-  background:radial-gradient(circle,rgba(255,244,218,.85) 0%,rgba(232,206,147,.35) 18%,rgba(190,146,68,.12) 38%,transparent 66%)}
-.horizon{position:absolute;left:0;right:0;bottom:0;height:34vh;pointer-events:none;z-index:3;
-  background:radial-gradient(66% 100% at 50% 122%,rgba(255,247,228,.55) 0%,rgba(237,220,186,.28) 30%,transparent 62%)}
-.hero-photo{position:absolute;left:0;right:0;bottom:0;height:62%;z-index:2;
-  background:linear-gradient(rgba(8,5,14,.4),rgba(8,5,14,.4)),url(hero.webp) center 42% / cover;
-  -webkit-mask:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.55) 22%,#000 48%);
-  mask:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.55) 22%,#000 48%)}
-.hero-scrim{position:absolute;inset:0;z-index:4;pointer-events:none;background:
-  radial-gradient(68% 54% at 50% 44%,rgba(8,5,14,.82) 0%,rgba(8,5,14,.55) 48%,rgba(8,5,14,.12) 78%,transparent 92%),
-  linear-gradient(180deg,rgba(8,5,14,.72) 0%,rgba(8,5,14,.26) 26%,rgba(8,5,14,.3) 64%,rgba(8,5,14,.78) 100%)}
-
-.swoosh{position:absolute;left:50%;top:50%;translate:-50% -50%;width:min(118vw,1500px);
-  aspect-ratio:2.6/1;pointer-events:none;opacity:.9}
-.swoosh svg{width:100%;height:100%}
-
+@media(max-width:520px){
+  .hero-sky{background-size:auto,auto 100%;opacity:.8}
+  .hero-ship{top:14%;right:2%;width:78px;opacity:.62}
+}
 .hero-in{position:relative;z-index:6;padding:76px var(--gap) clamp(76px,9vh,112px);width:100%;
   text-shadow:0 2px 26px rgba(8,5,14,.85),0 1px 4px rgba(8,5,14,.6)}
 .hero .lbl{display:block;margin-bottom:22px}
@@ -271,11 +254,12 @@ main{position:relative;z-index:3}
 /* hero: logo + event info */
 .hero-when{display:grid;justify-items:center;gap:4px;margin:0 auto}
 .hero-when h1{font-size:clamp(30px,6vw,84px);line-height:1.06;color:var(--gold-xl);text-wrap:balance}
-.hero-time{font-family:var(--f-d);font-size:clamp(26px,4.25vw,60px);line-height:1.1;color:var(--gold-xl)}
-.hero-logos{display:flex;align-items:center;justify-content:center;gap:clamp(18px,2.6vw,36px);margin:0 auto clamp(18px,3vh,30px)}
-.hero-logo{height:clamp(58px,6vw,84px);width:auto;filter:drop-shadow(0 4px 22px rgba(8,5,14,.7))}
-.hero-logo.psb{height:clamp(28px,3vw,42px)}
-.hero-logos-sep{width:1px;height:clamp(40px,4.6vw,62px);background:linear-gradient(180deg,transparent,rgba(232,206,147,.7),transparent)}
+.hero-times{display:flex;flex-wrap:wrap;justify-content:center;column-gap:clamp(18px,4vw,60px);row-gap:8px}
+.hero-time{display:grid;gap:2px;font-family:var(--f-d);font-size:clamp(24px,3.9vw,52px);line-height:1.12;color:var(--gold-xl)}
+.hero-time span{font-family:var(--f-b);font-size:clamp(11px,1.3vw,16px);color:var(--cream)}
+.hero-logos{display:flex;align-items:center;justify-content:space-between;max-width:1060px;
+  gap:20px;margin:0 auto clamp(18px,3vh,30px)}
+.hero-logo{width:clamp(88px,14vw,168px);height:clamp(42px,5.3vw,70px);object-fit:contain}
 .hero-intro{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
   align-items:center;max-width:920px;margin:clamp(28px,5vh,54px) auto;text-align:left;
   column-gap:clamp(48px,8vw,112px)}
@@ -334,6 +318,28 @@ main{position:relative;z-index:3}
   .image-slide__copy{grid-template-columns:1fr;margin-top:calc(68vw - 44px)}
 }
 
+.dress-intro{grid-column:1/-1;text-align:center}
+#dress h3,#dress h4{font-family:var(--f-d);font-size:clamp(17px,2.5vw,34px);color:var(--gold-xl);margin-bottom:5px}
+#dress h4{font-size:clamp(16px,1.75vw,25px)}
+#dress .image-slide__content{padding-bottom:clamp(24px,3vw,56px)}
+#dress .image-slide__copy{text-align:center}
+#prog .programme-logo,#prog .suit-logo{position:absolute;z-index:1;object-fit:contain}
+#prog .programme-logo{width:7%;height:5%;top:20%}
+#prog .programme-logo--a7{left:36%}
+#prog .programme-logo--psb{left:68%;top:21%}
+#prog .suit-logo{width:1.15%;height:1.2%;left:23.3%;top:33.5%;transform:rotate(28deg)}
+#reg::before{background:linear-gradient(90deg,rgba(15,12,18,.15),rgba(15,12,18,.82)),
+  url(registration.webp) center / cover no-repeat}
+#reg .sent{background:rgba(13,9,18,.73);padding:clamp(16px,3vw,36px);border-radius:6px}
+#reg .field input,#reg .field select{color:var(--cream)}
+#reg .field label{color:var(--gold-l)}
+#reg .field .msg{color:#FFB9A6}
+#reg .field input:focus{outline:2px solid var(--gold)}
+.field-select label{position:static;display:block;pointer-events:auto;margin-bottom:4px}
+.field-select select{width:100%;border:1px solid rgba(190,146,68,.55);border-radius:4px;
+  background:var(--night);font:inherit;padding:8px;color-scheme:dark}
+.field-select .msg{position:static;display:none}
+.field-select.err .msg{display:block}
 /* ================= FORM / TICKET ================= */
 .fgrid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(34px,5.5vw,86px);align-items:start}
 .field{position:relative;margin-bottom:24px}
@@ -374,19 +380,15 @@ main{position:relative;z-index:3}
 .sent.off{display:none}
 
 /* ================= MAP ================= */
-.mapbox{position:relative;border-radius:6px;overflow:hidden;border:1px solid rgba(232,206,147,.3);
-  min-height:clamp(290px,48vh,480px);display:flex;align-items:center;justify-content:center;
-  background:radial-gradient(70% 70% at 50% 50%,rgba(190,146,68,.2),transparent 68%),
-             linear-gradient(160deg,#160F20,#0B0710)}
-.mapgrid{position:absolute;inset:0;opacity:.3;
-  background-image:linear-gradient(rgba(232,206,147,.16) 1px,transparent 1px),
-                   linear-gradient(90deg,rgba(232,206,147,.16) 1px,transparent 1px);
-  background-size:54px 54px;
-  -webkit-mask:radial-gradient(58% 58% at 50% 50%,#000,transparent);
-  mask:radial-gradient(58% 58% at 50% 50%,#000,transparent)}
-.pin{position:relative;z-index:3;text-align:center;padding:0 20px}
-.pin .d{width:15px;height:15px;border-radius:50%;background:var(--gold-l);margin:0 auto 20px;position:relative;
-  box-shadow:0 0 24px rgba(232,206,147,.9)}
+.mapbox{position:relative;aspect-ratio:1846/852;min-height:280px;
+  background:#080708 url(map-frame.webp) center / 100% 100% no-repeat}
+.pin{position:absolute;inset:37% 20% 22%;display:grid;align-content:center;justify-items:center;
+  text-align:center;color:var(--cream)}
+.map-planet{width:clamp(34px,8vw,112px);max-height:clamp(34px,8vw,96px);object-fit:contain}
+.pin h3{font-size:clamp(16px,3vw,42px);margin:3px 0 !important}
+.pin .lbl{font-size:clamp(7px,1vw,10px);letter-spacing:.22em}
+.pin .lead{font-size:clamp(10px,1.45vw,18px);line-height:1.25}
+#map .btn-o{color:var(--gold-xl);border-color:var(--gold)}
 .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
 .infos{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:clamp(16px,2.2vw,28px);margin-top:44px}
 
@@ -408,8 +410,6 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
   .nav-links{display:none}
   .burger{display:flex}
   .hero{min-height:100svh}
-  .globe{width:230vw;top:-104vw}
-  .flare{width:62vw;right:2%;top:12%}
   .board-head{display:none}
   .row{grid-template-columns:1fr auto;gap:10px 16px;padding:16px clamp(16px,4vw,24px)}
   .row .tm{grid-column:1;font-size:15px}
@@ -453,38 +453,19 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
 
 <!-- ============ 01 HERO ============ -->
 <section class="hero" id="home">
-  <div class="hero-sky">
-    <div class="globe"></div>
-    <div class="flare"></div>
-    <div class="swoosh">
-      <svg viewBox="0 0 1200 460" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="sw" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stop-color="#BE9244" stop-opacity="0"/>
-            <stop offset=".22" stop-color="#F6E6C0" stop-opacity=".95"/>
-            <stop offset=".55" stop-color="#BE9244" stop-opacity=".5"/>
-            <stop offset=".82" stop-color="#F6E6C0" stop-opacity=".9"/>
-            <stop offset="1" stop-color="#BE9244" stop-opacity="0"/>
-          </linearGradient>
-        </defs>
-        <ellipse cx="600" cy="230" rx="560" ry="152" stroke="url(#sw)" stroke-width="1.6" transform="rotate(-7 600 230)"/>
-        <ellipse cx="600" cy="230" rx="470" ry="196" stroke="url(#sw)" stroke-width="1" opacity=".55" transform="rotate(9 600 230)"/>
-      </svg>
-    </div>
-    <div class="hero-photo"></div>
-    <div class="horizon"></div>
-    <div class="hero-scrim"></div>
-  </div>
-
+  <div class="hero-sky" aria-hidden="true"></div>
+  <img class="hero-ship" src="holiday-ship.webp" alt="" decoding="async">
   <div class="hero-in on-dark">
     <div class="hero-logos">
       <img class="hero-logo" src="logo-a7.webp" alt="А7 — Платформа международных платежей">
-      <span class="hero-logos-sep"></span>
       <img class="hero-logo psb" src="logo-psb.webp" alt="ПСБ">
     </div>
     <div class="hero-when">
       <h1><time datetime="2026-12-27">27 декабря 2026</time></h1>
-      <time class="hero-time" datetime="2026-12-27T17:00:00+03:00">17:00</time>
+      <div class="hero-times">
+        <div class="hero-time"><time datetime="2026-12-27T17:00:00+03:00">17:00</time><span>Сбор гостей</span></div>
+        <div class="hero-time"><time datetime="2026-12-27T18:00:00+03:00">18:00</time><span>Начало</span></div>
+      </div>
     </div>
     <div class="hero-intro">
       <div class="hero-title">
@@ -516,7 +497,7 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
 <!-- ============ 04 DRESS CODE ============ -->
 <section class="image-slide on-dark" id="dress">
   <div class="image-slide__media">
-    <img src="dresscode.webp" width="1680" height="1254" decoding="async" alt="Образы для вечера: серебристое и красное платья, платье с синими пайетками, чёрный и тёмно-синий костюмы" loading="lazy">
+    <img src="dresscode.webp" width="1448" height="1086" decoding="async" alt="Праздничные образы: золотые, серебристые, красные и синие платья, классические костюмы и блестящие пиджаки" loading="lazy">
   </div>
   <div class="wrap image-slide__content">
     <div class="image-slide__title">
@@ -524,8 +505,18 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
       <h2>Космический <span class="it">шик</span></h2>
     </div>
     <div class="image-slide__copy">
-      <p class="lead"><b>Galactic Smart Casual.</b> Выбирайте образ, который будто создан для вечера среди звёзд. Серебро, металлик, чёрный и глубокий синий, мерцающие фактуры и футуристичные детали — всё это идеально впишется в атмосферу нашей новой галактики.</p>
-      <p class="lead">Скафандр необязателен. Достаточно одной выразительной детали, которая сделает ваш образ по-настоящему неземным. И главное — выбирайте то, в чём будете чувствовать себя комфортно весь вечер.</p>
+      <div class="dress-intro">
+        <h3>Galactic Smart Casual</h3>
+        <p class="lead">Выбирайте образ, который будто создан для вечера среди звёзд.</p>
+      </div>
+      <div>
+        <h4>Для дам</h4>
+        <p class="lead">Коктейльные или вечерние платья, яркие цвета, металлик и пайетки.</p>
+      </div>
+      <div>
+        <h4>Для мужчин</h4>
+        <p class="lead">Классические костюмы или акцентные пиджаки с мерцающей фактурой.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -533,7 +524,10 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
 <!-- ============ 03 PROGRAMME ============ -->
 <section class="image-slide on-dark" id="prog">
   <div class="image-slide__media">
-    <img src="program-stand.webp" width="1680" height="1206" decoding="async" alt="Стенд-афиша: приглашаем на новую орбиту праздника. Секретные звёздные появления, космическая шоу-программа, галактические бары и авторские коктейли, орбитальный фуршет, розыгрыш межзвёздных призов" loading="lazy">
+    <img src="program-stand.webp" width="1480" height="1063" decoding="async" alt="Стенд-афиша: приглашаем на новую орбиту праздника. Секретные звёздные появления, космическая шоу-программа, галактические бары и авторские коктейли, орбитальный фуршет, розыгрыш межзвёздных призов" loading="lazy">
+    <img class="programme-logo programme-logo--a7" src="logo-a7.webp" alt="А7" loading="lazy">
+    <img class="programme-logo programme-logo--psb" src="logo-psb.webp" alt="ПСБ" loading="lazy">
+    <img class="suit-logo" src="logo-a7.webp" alt="" loading="lazy">
   </div>
   <div class="wrap image-slide__content">
     <div class="image-slide__title">
@@ -557,17 +551,27 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
         <form id="regForm" novalidate>
           <div class="field"><input type="text" id="f-name" autocomplete="name"><label for="f-name">Фамилия и имя</label><span class="msg">Заполните</span></div>
           <div class="field"><input type="email" id="f-mail" autocomplete="email"><label for="f-mail">E-mail</label><span class="msg">Проверьте</span></div>
-          <div class="field"><input type="text" id="f-comp" autocomplete="organization"><label for="f-comp">Компания</label><span class="msg">Заполните</span></div>
+          <div class="field"><input type="tel" id="f-tel" autocomplete="tel"><label for="f-tel">Телефон</label><span class="msg">Проверьте</span></div>
+          <div class="field field-select">
+            <label for="f-comp">Компания</label>
+            <select id="f-comp" autocomplete="organization">
+              <option value="">Выберите компанию</option>
+              <option>А7</option>
+              <option>ПСБ</option>
+              <option>Другая компания</option>
+            </select>
+            <span class="msg">Выберите</span>
+          </div>
           <button class="btn" type="submit" style="margin-top:12px">Зарегистрироваться <i></i></button>
-          <p class="small" style="margin-top:20px;color:rgba(205,191,172,.65)">Все поля обязательны. Билет придёт на указанную почту.</p>
+          <p class="small" style="margin-top:20px;color:rgba(205,191,172,.65)">Все поля обязательны. Билет появится на этой странице.</p>
         </form>
       </div>
 
       <div class="ok" id="okBlock">
         <div class="panel" style="background:linear-gradient(160deg,rgba(246,230,192,.12),rgba(190,146,68,.05));border-color:rgba(232,206,147,.4)">
           <span class="lbl on-dark">Регистрация прошла успешно</span>
-          <h3 class="h-m" style="margin:14px 0 12px;color:var(--cream)">До встречи за пределами звёзд<br>27 декабря в 17:00</h3>
-          <p class="lead">Ваш персональный QR-билет отправлен на указанную электронную почту. Сохраните его на телефоне и покажите при входе.</p>
+          <h3 class="h-m" style="margin:14px 0 12px;color:var(--cream)">До встречи за пределами звёзд<br>27 декабря в 18:00</h3>
+          <p class="lead">Ваш персональный билет готов. Сохраните его на телефоне и покажите при входе.</p>
         </div>
       </div>
 
@@ -584,7 +588,7 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
             <div class="pass-details">
               <div class="prow"><span>Гость</span><b id="tkName">—</b></div>
               <div class="prow"><span>Компания</span><b id="tkComp">—</b></div>
-              <div class="prow"><span>Вылет</span><b>27.12.2026 · 17:00</b></div>
+              <div class="prow"><span>Вылет</span><b>27.12.2026 · 18:00</b></div>
               <div class="prow"><span>Терминал</span><b>ЦСКА Арена<br>ул. Автозаводская, 23А</b></div>
             </div>
             <div class="qr" id="qrBox"></div>
@@ -599,18 +603,17 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
 </section>
 
 <!-- ============ 06 MAP ============ -->
-<section class="sec" id="map">
+<section class="sec dark on-dark" id="map">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="lbl">Координаты старта</span>
+      <span class="lbl on-dark">Координаты старта</span>
       <h2 class="h-xl" style="margin-top:18px">Точка старта — <span class="it">Земля</span></h2>
       <p class="lead">Следующая остановка — за пределами звёзд. А пока наш космодром ждёт вас в самом сердце Москвы. Постройте маршрут заранее и не забудьте персональный QR-билет — он понадобится для входа.</p>
     </div>
 
     <div class="mapbox rv">
-      <div class="mapgrid"></div>
       <div class="pin">
-        <div class="d"></div>
+        <img class="map-planet" src="venue-planet.webp" alt="" loading="lazy">
         <span class="lbl on-dark">Место встречи</span>
         <h3 class="h-l" style="margin:14px 0 10px;color:var(--cream)">ЦСКА Арена</h3>
         <p class="lead" style="margin:0 auto;color:#D9CDBA">Москва, ул. Автозаводская, д. 23А</p>
@@ -673,7 +676,7 @@ addEventListener('resize',updateNav);
 
 /* ============ COUNTDOWN ============ */
 (function(){
-  const t=new Date('2026-12-27T17:00:00+03:00').getTime(), box=document.getElementById('count');
+  const t=new Date('2026-12-27T18:00:00+03:00').getTime(), box=document.getElementById('count');
   const el=k=>box.querySelector('[data-'+k+']');
   function tick(){
     let d=Math.max(0,t-Date.now());
@@ -691,7 +694,7 @@ addEventListener('resize',updateNav);
 
 /* ============ FORM + QR ============ */
 const form=document.getElementById('regForm');
-document.querySelectorAll('.field input').forEach(i=>i.addEventListener('input',()=>{
+document.querySelectorAll('.field input,.field select').forEach(i=>i.addEventListener('input',()=>{
   i.classList.toggle('filled',!!i.value); i.parentElement.classList.remove('err');
 }));
 function drawQR(text){
@@ -715,7 +718,7 @@ form.addEventListener('submit',e=>{
   e.preventDefault();
   const v=id=>document.getElementById(id);let ok=true;
   [['f-name',s=>s.trim().length>1],
-   ['f-mail',s=>/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(s)],['f-comp',s=>s.trim().length>1]]
+   ['f-mail',s=>/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(s)],['f-tel',s=>/^\+?[\d\s().-]+$/.test(s.trim())&&/^\d{10,15}$/.test(s.replace(/\D/g,''))],['f-comp',s=>!!s]]
   .forEach(([id,t])=>{const el=v(id),g=t(el.value);el.parentElement.classList.toggle('err',!g);if(!g)ok=false});
   if(!ok)return;
   const no='A7-'+Math.random().toString(36).slice(2,8).toUpperCase();
