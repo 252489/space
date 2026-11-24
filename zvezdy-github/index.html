@@ -101,6 +101,7 @@ p{max-width:64ch}
 .mm{position:fixed;inset:0;z-index:49;background:var(--night);
   display:flex;flex-direction:column;justify-content:center;padding:0 var(--gap);
   opacity:0;pointer-events:none;transition:opacity .5s var(--ease)}
+.mm:not(.open){visibility:hidden}
 .mm.open{opacity:1;pointer-events:auto}
 .mm a{font-family:var(--f-d);font-size:clamp(27px,8vw,44px);color:rgba(244,237,225,.8);
   padding:10px 0;border-bottom:1px solid rgba(190,146,68,.25);display:flex;align-items:baseline;gap:16px;
@@ -329,7 +330,15 @@ main{position:relative;z-index:3}
 #reg .reg-access{margin-bottom:10px;font-weight:600;color:var(--cream)}
 .support-note{background:var(--night);color:var(--cream);padding:32px var(--gap);border-top:1px solid rgba(190,146,68,.24)}
 .support-note p{margin-inline:auto;text-align:center;max-width:76ch}
-#reg .sent{background:rgba(13,9,18,.73);padding:clamp(16px,3vw,36px);border-radius:6px}
+.registration-dialog{width:min(calc(100% - 28px),560px);max-height:calc(100dvh - 28px);
+  margin:auto;padding:clamp(18px,4vw,34px);overflow:auto;overscroll-behavior:contain;
+  color:var(--cream);background:var(--night);border:1px solid rgba(232,206,147,.5);border-radius:12px}
+.registration-dialog::backdrop{background:rgba(8,5,14,.78)}
+body:has(.registration-dialog[open]){overflow:hidden}
+.registration-dialog__head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.registration-dialog__close{width:44px;height:44px;flex:0 0 auto;font-size:26px;color:var(--gold-xl);
+  border:1px solid rgba(232,206,147,.45);border-radius:50%}
+.registration-dialog__close:focus-visible{outline:2px solid var(--gold-l);outline-offset:2px}
 #reg .field input,#reg .field select{color:var(--cream)}
 #reg .field label{color:var(--gold-l)}
 #reg .field .msg{color:#FFB9A6}
@@ -362,7 +371,6 @@ main{position:relative;z-index:3}
 .panel{border:1px solid rgba(190,146,68,.4);border-radius:4px;padding:clamp(24px,3vw,38px);
   background:linear-gradient(160deg,rgba(252,247,237,.985),rgba(242,233,216,.965))}
 .ok{display:none}.ok.on{display:block}
-.sent.off{display:none}
 
 /* ================= MAP ================= */
 #map{--console-height:max(520px,46.15vw);background:#050505}
@@ -418,6 +426,63 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
   .btn{width:100%;justify-content:space-between}
   .acts .btn{width:auto}
 }
+.programme-details{display:none}
+@media(max-width:680px){
+  :root{--gap:clamp(16px,5vw,30px)}
+  .nav{padding-top:max(8px,env(safe-area-inset-top));padding-bottom:8px}
+  .burger{width:44px;height:44px}
+  .mm{justify-content:flex-start;overflow-y:auto;padding-top:clamp(76px,16vh,130px);padding-bottom:24px}
+  .mm a{min-height:50px;font-size:clamp(22px,6.4vw,34px)}
+  .hero{min-height:auto}
+  .hero-in{padding-top:clamp(72px,10vh,102px);padding-bottom:38px}
+  .hero-sky{opacity:1;background:
+    linear-gradient(180deg,transparent 0%,#100e19 70%),
+    url(hero.webp) center top / auto clamp(260px,76vw,480px) no-repeat;
+    background-size:100% clamp(330px,96vw,570px),auto clamp(260px,76vw,480px);
+    background-repeat:no-repeat;background-color:#100e19}
+  .hero-ship{top:18%;right:3%;width:clamp(55px,16vw,98px);opacity:.62}
+  .hero-logos{margin-bottom:18px}
+  .hero-when{gap:10px}
+  .hero-when h1{font-size:clamp(30px,8.4vw,52px)}
+  .hero-time span{font-size:12px}
+  .hero-intro{margin-block:26px;gap:16px;text-align:center}
+  .hero-name br{display:none}
+  .hero-name,.hero-slogan,.hero-copy .lead span{white-space:normal}
+  .hero-copy{padding-top:15px}
+  .hero-copy .lead{line-height:1.6}
+  .hero-copy .quote{font-size:16px}
+  .hero-info{margin-top:0}
+  .hero .count{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;max-width:350px;margin:15px auto 20px}
+  .count div{min-width:0}
+  .count span{letter-spacing:.15em}
+  .hero .btn{max-width:350px}
+  .cue{display:none}
+  .sec{padding-block:clamp(44px,10vw,68px)}
+  #dress .image-slide__content{padding-bottom:4px}
+  #dress .image-slide__media{margin-top:calc(-1 * clamp(38px,14vw,88px))}
+  #prog{display:flex;flex-direction:column}
+  #prog .image-slide__content{order:-1;padding-block:30px 4px}
+  #prog .image-slide__media::after{background:linear-gradient(180deg,#090b15,transparent 18%)}
+  .programme-details{display:block;text-align:left;padding-bottom:32px}
+  .programme-details summary{min-height:44px;display:list-item;padding-block:10px;color:var(--gold-xl);cursor:pointer}
+  .programme-details ul{padding-inline-start:22px;line-height:1.65}
+  .programme-details li+li{margin-top:5px}
+  #reg::before{background:linear-gradient(180deg,rgba(13,9,18,.45),#0d0912 320px),
+    url(registration.webp) right top / auto 300px no-repeat}
+  #reg .sec-head{text-align:center;margin-bottom:22px}
+  #reg .sec-head .lead{margin-inline:auto}
+  #reg .fgrid{gap:0;max-width:460px;margin-inline:auto}
+  #reg .field{margin-bottom:19px}
+  #reg .field select{min-height:46px}
+  #map{--console-height:570px}
+  #map .mapbox{margin-top:calc(var(--console-height) * -.28);background-size:154% 100%}
+  #map .map-screen{inset-inline:3%}
+  #map .acts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:18px}
+  #map .acts .btn{width:100%;padding:11px 9px;gap:6px;justify-content:center;text-align:center;min-height:44px;letter-spacing:.08em}
+  #map .acts button{grid-column:1/-1}
+  .support-note{padding-block:24px;font-size:14px;overflow-wrap:anywhere}
+  footer{display:grid;justify-content:center;gap:8px;padding-block:26px;text-align:center}
+}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{transition-duration:.01ms!important}
 }
@@ -436,7 +501,7 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
     <a href="#reg" data-go="reg">Билет</a>
     <a href="#map" data-go="map">Координаты</a>
   </div>
-  <button class="burger" id="burger" aria-label="Меню"><i></i><i></i></button>
+  <button class="burger" id="burger" type="button" aria-label="Меню" aria-controls="mm" aria-expanded="false"><i></i><i></i></button>
 </nav>
 
 <div class="mm" id="mm">
@@ -467,7 +532,7 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
     </div>
     <div class="hero-intro">
       <div class="hero-title">
-        <p class="hero-name">Новогодний вечер<br>компании</p>
+        <p class="hero-name">Новогодний вечер<br> компании</p>
         <p class="hero-slogan">За пределами звёзд</p>
       </div>
       <div class="hero-copy">
@@ -530,6 +595,16 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
       <h2>Вечер на <span class="it">новой орбите</span></h2>
     </div>
   </div>
+  <details class="wrap programme-details">
+    <summary>Что вас ждёт</summary>
+    <ul>
+      <li>Секретные звёздные появления</li>
+      <li>Космическая шоу-программа</li>
+      <li>Галактические бары и авторские коктейли</li>
+      <li>Орбитальный фуршет</li>
+      <li>Розыгрыш межзвёздных призов</li>
+    </ul>
+  </details>
 </section>
 
 <!-- ============ 05 REGISTRATION ============ -->
@@ -544,8 +619,12 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
 
     <div class="fgrid">
       <div>
-        <button class="btn" type="button" id="open-registration" aria-controls="formBlock" aria-expanded="false">Пройти регистрацию <i></i></button>
-        <div class="sent rv" id="formBlock" hidden>
+        <button class="btn" type="button" id="open-registration" aria-controls="formBlock" aria-haspopup="dialog">Пройти регистрацию <i></i></button>
+        <dialog class="registration-dialog" id="formBlock" aria-labelledby="registration-title">
+          <div class="registration-dialog__head">
+            <h3 class="h-m" id="registration-title">Регистрация</h3>
+            <button class="registration-dialog__close" type="button" id="close-registration" aria-label="Закрыть форму" autofocus>×</button>
+          </div>
         <form id="regForm" novalidate>
           <div class="field"><input type="text" id="f-name" autocomplete="name"><label for="f-name">Фамилия и имя</label><span class="msg">Заполните</span></div>
           <div class="field"><input type="email" id="f-mail" autocomplete="email"><label for="f-mail">E-mail</label><span class="msg">Проверьте</span></div>
@@ -564,10 +643,10 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
           <p id="reg-error" role="alert" hidden></p>
           <p class="small" style="margin-top:20px;color:rgba(205,191,172,.65)">Все поля обязательны. QR-код появится на этой странице.</p>
         </form>
-        </div>
+        </dialog>
       </div>
 
-      <div class="ok" id="okBlock">
+      <div class="ok" id="okBlock" tabindex="-1">
         <div class="panel" style="background:linear-gradient(160deg,rgba(246,230,192,.12),rgba(190,146,68,.05));border-color:rgba(232,206,147,.4)">
           <span class="lbl on-dark">Регистрация прошла успешно</span>
           <h3 class="h-m" style="margin:14px 0 12px;color:var(--cream)">До встречи за пределами звёзд<br>27 декабря в 18:00</h3>
@@ -645,12 +724,21 @@ const spy=new IntersectionObserver(es=>es.forEach(e=>{
 SECS.forEach(id=>{const el=document.getElementById(id); if(el) spy.observe(el);});
 
 const mm=document.getElementById('mm'), burger=document.getElementById('burger');
-function closeMenu(){mm.classList.remove('open');burger.classList.remove('x');document.body.classList.remove('locked')}
-burger.addEventListener('click',()=>{
-  const o=mm.classList.toggle('open');
-  burger.classList.toggle('x',o); document.body.classList.toggle('locked',o);
-  if(o) mm.querySelectorAll('a').forEach((a,i)=>a.style.transitionDelay=(i*55+70)+'ms');
+function setMenu(open){
+  mm.classList.toggle('open',open);
+  burger.classList.toggle('x',open);
+  burger.setAttribute('aria-expanded',String(open));
+  document.body.classList.toggle('locked',open);
+}
+function closeMenu(){setMenu(false)}
+burger.addEventListener('click',()=>setMenu(!mm.classList.contains('open')));
+document.addEventListener('keydown',event=>{
+  if(event.key==='Escape' && mm.classList.contains('open')){
+    closeMenu();
+    burger.focus();
+  }
 });
+matchMedia('(max-width:860px)').addEventListener('change',closeMenu);
 
 /* Update the navigation background when the page crosses the hero. */
 function updateNav(){
@@ -681,12 +769,9 @@ addEventListener('resize',updateNav);
 /* ============ FORM + QR ============ */
 const form=document.getElementById('regForm');
 const openRegistration=document.getElementById('open-registration');
-openRegistration.addEventListener('click',()=>{
-  document.getElementById('formBlock').hidden=false;
-  openRegistration.setAttribute('aria-expanded','true');
-  openRegistration.hidden=true;
-  document.getElementById('f-name').focus();
-});
+const registrationDialog=document.getElementById('formBlock');
+openRegistration.addEventListener('click',()=>registrationDialog.showModal());
+document.getElementById('close-registration').addEventListener('click',()=>registrationDialog.close());
 document.querySelectorAll('.field input,.field select').forEach(i=>i.addEventListener('input',()=>{
   i.classList.toggle('filled',!!i.value); i.parentElement.classList.remove('err');
 }));
@@ -720,8 +805,10 @@ form.addEventListener('submit',async e=>{
     box.replaceChildren();
     new window.QRCode(box,{text,width:120,height:120,colorDark:'#241A11',
       colorLight:'#F6EFE2',correctLevel:window.QRCode.CorrectLevel.M});
-    v('formBlock').classList.add('off');
+    registrationDialog.close();
+    openRegistration.hidden=true;
     v('okBlock').classList.add('on');
+    v('okBlock').focus({preventScroll:true});
     v('okBlock').scrollIntoView({behavior:'smooth',block:'center'});
   }catch{
     error.textContent='Не удалось создать QR-код. Попробуйте ещё раз.';
