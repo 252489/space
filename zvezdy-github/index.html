@@ -328,8 +328,8 @@ main{position:relative;z-index:3}
   url(registration.webp) center / cover no-repeat}
 #reg #open-registration[hidden]{display:none}
 #reg .reg-access{margin-bottom:10px;font-weight:600;color:var(--cream)}
-.support-note{background:var(--night);color:var(--cream);padding:32px var(--gap);border-top:1px solid rgba(190,146,68,.24)}
-.support-note p{margin-inline:auto;text-align:center;max-width:76ch}
+.support-note{margin-top:22px;color:var(--cream);font-size:14px;overflow-wrap:anywhere}
+.support-note p{max-width:58ch}
 .registration-dialog{width:min(calc(100% - 28px),560px);max-height:calc(100dvh - 28px);
   margin:auto;padding:clamp(18px,4vw,34px);overflow:auto;overscroll-behavior:contain;
   color:var(--cream);background:var(--night);border:1px solid rgba(232,206,147,.5);border-radius:12px}
@@ -480,7 +480,7 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
   #map .acts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:18px}
   #map .acts .btn{width:100%;padding:11px 9px;gap:6px;justify-content:center;text-align:center;min-height:44px;letter-spacing:.08em}
   #map .acts button{grid-column:1/-1}
-  .support-note{padding-block:24px;font-size:14px;overflow-wrap:anywhere}
+  .support-note p{margin-inline:auto;text-align:center}
   footer{display:grid;justify-content:center;gap:8px;padding-block:26px;text-align:center}
 }
 @media(prefers-reduced-motion:reduce){
@@ -658,6 +658,10 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
 
     </div>
 
+    <aside class="support-note" aria-label="Техническая поддержка">
+      <p>Если после регистрации билет не пришёл на электронную почту, обратитесь в техническую поддержку. <span>[Адрес электронной почты техподдержки]</span></p>
+    </aside>
+
     <p class="quote on-dark rv" style="margin-top:clamp(50px,7vw,96px);max-width:54ch">Координаты заданы. Обратный отсчёт начался. Остаётся занять своё место на борту.</p>
   </div>
 </section>
@@ -690,10 +694,6 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
 </section>
 
 </main>
-
-<aside class="support-note" aria-label="Техническая поддержка">
-  <p>Если после регистрации билет не пришёл на электронную почту, обратитесь в техническую поддержку. <span>[Адрес электронной почты техподдержки]</span></p>
-</aside>
 
 <footer>
   <span>А7 · За пределами звёзд</span>
