@@ -323,23 +323,20 @@ main{position:relative;z-index:3}
 #dress h4{font-size:clamp(16px,1.75vw,25px)}
 #dress .image-slide__content{padding-bottom:clamp(24px,3vw,56px)}
 #dress .image-slide__copy{text-align:center}
-#prog .programme-logo,#prog .suit-logo{position:absolute;z-index:1;object-fit:contain}
-#prog .programme-logo{width:7%;height:5%;top:20%}
-#prog .programme-logo--a7{left:36%}
-#prog .programme-logo--psb{left:68%;top:21%}
+#prog .suit-logo{position:absolute;z-index:1;object-fit:contain}
 #prog .suit-logo{width:1.15%;height:1.2%;left:23.3%;top:33.5%;transform:rotate(28deg)}
-#reg::before{background:linear-gradient(90deg,rgba(15,12,18,.15),rgba(15,12,18,.82)),
+#reg::before{background:linear-gradient(90deg,rgba(15,12,18,.15),rgba(15,12,18,.25)),
   url(registration.webp) center / cover no-repeat}
 #reg .sent{background:rgba(13,9,18,.73);padding:clamp(16px,3vw,36px);border-radius:6px}
 #reg .field input,#reg .field select{color:var(--cream)}
 #reg .field label{color:var(--gold-l)}
 #reg .field .msg{color:#FFB9A6}
 #reg .field input:focus{outline:2px solid var(--gold)}
-.field-select label{position:static;display:block;pointer-events:auto;margin-bottom:4px}
+.field.field-select label{position:static;display:block;pointer-events:auto;margin-bottom:4px}
 .field-select select{width:100%;border:1px solid rgba(190,146,68,.55);border-radius:4px;
   background:var(--night);font:inherit;padding:8px;color-scheme:dark}
-.field-select .msg{position:static;display:none}
-.field-select.err .msg{display:block}
+.field.field-select .msg{position:static;display:none}
+.field.field-select.err .msg{display:block}
 /* ================= FORM / TICKET ================= */
 .fgrid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(34px,5.5vw,86px);align-items:start}
 .field{position:relative;margin-bottom:24px}
@@ -356,39 +353,28 @@ main{position:relative;z-index:3}
   text-transform:uppercase;color:var(--wine);opacity:0;transition:.3s;font-family:var(--f-d)}
 .field.err .msg{opacity:1}
 
-.pass{container-type:inline-size;display:grid;grid-template-rows:auto 1fr;aspect-ratio:16/10;
-  min-height:244px;background:#080e19 url(boarding-pass.webp) center / 100% 100% no-repeat}
-.pass-top{min-height:clamp(78px,20cqw,140px);padding:12px 8%;
-  display:flex;justify-content:space-between;align-items:center;gap:8px 16px;flex-wrap:wrap}
-.pass-top h3{margin-top:4px;font-size:clamp(17px,4.6cqw,30px)}
-.pass-number{font-family:var(--f-d);font-size:11px;color:var(--gold-xl);white-space:nowrap}
-.pass-bot{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;
-  gap:clamp(10px,4cqw,24px);padding:14px 8% 18px}
-.pass-details{min-width:0;background:linear-gradient(90deg,rgba(5,10,19,.8),rgba(5,10,19,.62));
-  padding:0 8px;border-radius:4px}
-.qr{width:clamp(72px,23cqw,128px);aspect-ratio:1;background:#F6EFE2;border-radius:4px;padding:8px;
-  display:flex;align-items:center;justify-content:center}
-.qr canvas,.qr img,.qr svg{width:100%;height:100%}
-.prow{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:baseline;column-gap:8px;padding:5px 0;
-  border-bottom:1px solid rgba(232,206,147,.22);font-size:clamp(11px,2.5cqw,14px);line-height:1.25}
-.prow:last-child{border:none}
-.prow span{font-family:var(--f-d);font-size:clamp(9px,2.1cqw,11px);color:var(--gold-xl)}
-.prow b{font-weight:400;color:var(--cream);text-align:right;font-family:var(--f-d);overflow-wrap:anywhere}
+.qr{width:144px;aspect-ratio:1;background:#F6EFE2;border-radius:4px;padding:12px;
+  margin-top:18px;display:grid;place-items:center}
+.qr img,.qr canvas{width:100%;height:auto}
+#reg-error{margin-top:12px;color:#FFB9A6}
 .panel{border:1px solid rgba(190,146,68,.4);border-radius:4px;padding:clamp(24px,3vw,38px);
   background:linear-gradient(160deg,rgba(252,247,237,.985),rgba(242,233,216,.965))}
 .ok{display:none}.ok.on{display:block}
 .sent.off{display:none}
 
 /* ================= MAP ================= */
-.mapbox{position:relative;aspect-ratio:1846/852;min-height:280px;
+#map .sec-head{text-align:center}
+#map .sec-head .lead{margin-inline:auto}
+.mapbox{position:relative;width:100%;aspect-ratio:1846/852;min-height:520px;
   background:#080708 url(map-frame.webp) center / 100% 100% no-repeat}
-.pin{position:absolute;inset:37% 20% 22%;display:grid;align-content:center;justify-items:center;
-  text-align:center;color:var(--cream)}
-.map-planet{width:clamp(34px,8vw,112px);max-height:clamp(34px,8vw,96px);object-fit:contain}
-.pin h3{font-size:clamp(16px,3vw,42px);margin:3px 0 !important}
-.pin .lbl{font-size:clamp(7px,1vw,10px);letter-spacing:.22em}
-.pin .lead{font-size:clamp(10px,1.45vw,18px);line-height:1.25}
+.map-screen{position:absolute;inset:37.6% 19.8% 22%;overflow:hidden;background:#161b22}
+.map-screen iframe{display:block;width:100%;height:100%;border:0;color-scheme:dark}
+#map .acts{justify-content:center}
 #map .btn-o{color:var(--gold-xl);border-color:var(--gold)}
+@media(max-width:600px){
+  .mapbox{min-height:465px;background-size:138% 100%}
+  .map-screen{inset-inline:8.4%}
+}
 .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
 .infos{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:clamp(16px,2.2vw,28px);margin-top:44px}
 
@@ -524,9 +510,7 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
 <!-- ============ 03 PROGRAMME ============ -->
 <section class="image-slide on-dark" id="prog">
   <div class="image-slide__media">
-    <img src="program-stand.webp" width="1480" height="1063" decoding="async" alt="Стенд-афиша: приглашаем на новую орбиту праздника. Секретные звёздные появления, космическая шоу-программа, галактические бары и авторские коктейли, орбитальный фуршет, розыгрыш межзвёздных призов" loading="lazy">
-    <img class="programme-logo programme-logo--a7" src="logo-a7.webp" alt="А7" loading="lazy">
-    <img class="programme-logo programme-logo--psb" src="logo-psb.webp" alt="ПСБ" loading="lazy">
+    <img src="program-stand.webp" width="1479" height="1064" decoding="async" alt="Стенд-афиша: приглашаем на новую орбиту праздника. Секретные звёздные появления, космическая шоу-программа, галактические бары и авторские коктейли, орбитальный фуршет, розыгрыш межзвёздных призов" loading="lazy">
     <img class="suit-logo" src="logo-a7.webp" alt="" loading="lazy">
   </div>
   <div class="wrap image-slide__content">
@@ -563,7 +547,8 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
             <span class="msg">Выберите</span>
           </div>
           <button class="btn" type="submit" style="margin-top:12px">Зарегистрироваться <i></i></button>
-          <p class="small" style="margin-top:20px;color:rgba(205,191,172,.65)">Все поля обязательны. Билет появится на этой странице.</p>
+          <p id="reg-error" role="alert" hidden></p>
+          <p class="small" style="margin-top:20px;color:rgba(205,191,172,.65)">Все поля обязательны. QR-код появится на этой странице.</p>
         </form>
       </div>
 
@@ -571,31 +556,12 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
         <div class="panel" style="background:linear-gradient(160deg,rgba(246,230,192,.12),rgba(190,146,68,.05));border-color:rgba(232,206,147,.4)">
           <span class="lbl on-dark">Регистрация прошла успешно</span>
           <h3 class="h-m" style="margin:14px 0 12px;color:var(--cream)">До встречи за пределами звёзд<br>27 декабря в 18:00</h3>
-          <p class="lead">Ваш персональный билет готов. Сохраните его на телефоне и покажите при входе.</p>
+          <p class="lead">Ваш персональный билет готов. Сохраните QR-код на телефоне и покажите при входе.</p>
+          <div class="qr" id="qrBox"></div>
         </div>
       </div>
 
-      <div class="rv">
-        <div class="pass" id="pass">
-          <div class="pass-top">
-            <div>
-              <span class="lbl on-dark">Boarding pass</span>
-              <h3>New Year Express</h3>
-            </div>
-            <span class="pass-number">№ <span id="tkNo">—</span></span>
-          </div>
-          <div class="pass-bot">
-            <div class="pass-details">
-              <div class="prow"><span>Гость</span><b id="tkName">—</b></div>
-              <div class="prow"><span>Компания</span><b id="tkComp">—</b></div>
-              <div class="prow"><span>Вылет</span><b>27.12.2026 · 18:00</b></div>
-              <div class="prow"><span>Терминал</span><b>ЦСКА Арена<br>ул. Автозаводская, 23А</b></div>
-            </div>
-            <div class="qr" id="qrBox"></div>
-          </div>
-        </div>
-        <p class="small" style="margin-top:16px;color:rgba(205,191,172,.65)">Предъявите QR-код при входе.</p>
-      </div>
+
     </div>
 
     <p class="quote on-dark rv" style="margin-top:clamp(50px,7vw,96px);max-width:54ch">Координаты заданы. Обратный отсчёт начался. Остаётся занять своё место на борту.</p>
@@ -611,17 +577,17 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
       <p class="lead">Следующая остановка — за пределами звёзд. А пока наш космодром ждёт вас в самом сердце Москвы. Постройте маршрут заранее и не забудьте персональный QR-билет — он понадобится для входа.</p>
     </div>
 
-    <div class="mapbox rv">
-      <div class="pin">
-        <img class="map-planet" src="venue-planet.webp" alt="" loading="lazy">
-        <span class="lbl on-dark">Место встречи</span>
-        <h3 class="h-l" style="margin:14px 0 10px;color:var(--cream)">ЦСКА Арена</h3>
-        <p class="lead" style="margin:0 auto;color:#D9CDBA">Москва, ул. Автозаводская, д. 23А</p>
-      </div>
+  </div>
+  <div class="mapbox">
+    <div class="map-screen">
+      <iframe title="Яндекс Карты — ЦСКА Арена, Автозаводская улица, 23А"
+        src="https://yandex.ru/map-widget/v1/?mode=poi&amp;poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1425831484&amp;theme=dark"
+        loading="lazy" allowfullscreen></iframe>
     </div>
-
+  </div>
+  <div class="wrap">
     <div class="acts rv">
-      <a class="btn btn-o" target="_blank" rel="noopener" href="https://yandex.ru/maps/?text=Москва, улица Автозаводская, 23А, ЦСКА Арена">Яндекс Карты <i></i></a>
+      <a class="btn btn-o" target="_blank" rel="noopener" href="https://yandex.ru/maps/org/tsska_arena/1425831484/">Яндекс Карты <i></i></a>
       <a class="btn btn-o" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=ЦСКА+Арена+улица+Автозаводская+23А+Москва">Google Maps <i></i></a>
       <button class="btn" data-go="reg">Мой билет <i></i></button>
     </div>
@@ -697,46 +663,46 @@ const form=document.getElementById('regForm');
 document.querySelectorAll('.field input,.field select').forEach(i=>i.addEventListener('input',()=>{
   i.classList.toggle('filled',!!i.value); i.parentElement.classList.remove('err');
 }));
-function drawQR(text){
-  const box=document.getElementById('qrBox'); box.innerHTML='';
-  if(window.QRCode){try{new QRCode(box,{text,width:112,height:112,
-    colorDark:'#241A11',colorLight:'#F6EFE2',correctLevel:QRCode.CorrectLevel.M});return;}catch(e){}}
-  let h=0;for(let i=0;i<text.length;i++)h=(h*31+text.charCodeAt(i))>>>0;
-  const n=21,c=document.createElement('canvas');c.width=c.height=n*6;
-  const g=c.getContext('2d');g.fillStyle='#F6EFE2';g.fillRect(0,0,c.width,c.height);g.fillStyle='#241A11';
-  let s=h||12345;const rnd=()=>{s=(s*1664525+1013904223)>>>0;return s/4294967296};
-  for(let y=0;y<n;y++)for(let x=0;x<n;x++) if(rnd()>.5) g.fillRect(x*6,y*6,6,6);
-  [[0,0],[n-7,0],[0,n-7]].forEach(([fx,fy])=>{
-    g.fillStyle='#F6EFE2';g.fillRect(fx*6,fy*6,42,42);
-    g.fillStyle='#241A11';g.fillRect(fx*6,fy*6,42,6);g.fillRect(fx*6,(fy+6)*6,42,6);
-    g.fillRect(fx*6,fy*6,6,42);g.fillRect((fx+6)*6,fy*6,6,42);
-    g.fillRect((fx+2)*6,(fy+2)*6,18,18);
+function loadQRCode(){
+  if(window.QRCode)return Promise.resolve();
+  return new Promise((resolve,reject)=>{
+    const script=document.createElement('script');
+    script.src='https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js';
+    script.onload=resolve;
+    script.onerror=()=>{script.remove();reject(new Error('QR library unavailable'));};
+    document.head.appendChild(script);
   });
-  box.appendChild(c);
 }
-form.addEventListener('submit',e=>{
+form.addEventListener('submit',async e=>{
   e.preventDefault();
   const v=id=>document.getElementById(id);let ok=true;
   [['f-name',s=>s.trim().length>1],
    ['f-mail',s=>/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(s)],['f-tel',s=>/^\+?[\d\s().-]+$/.test(s.trim())&&/^\d{10,15}$/.test(s.replace(/\D/g,''))],['f-comp',s=>!!s]]
   .forEach(([id,t])=>{const el=v(id),g=t(el.value);el.parentElement.classList.toggle('err',!g);if(!g)ok=false});
   if(!ok)return;
+  const submit=form.querySelector('button[type="submit"]');
+  if(submit.disabled)return;
+  const error=v('reg-error');
+  error.hidden=true;
+  submit.disabled=true;
   const no='A7-'+Math.random().toString(36).slice(2,8).toUpperCase();
-  document.getElementById('tkNo').textContent=no;
-  document.getElementById('tkName').textContent=v('f-name').value;
-  document.getElementById('tkComp').textContent=v('f-comp').value;
-  drawQR('ZA-PREDELAMI-ZVEZD|'+no+'|'+v('f-name').value+'|27.12.2026');
-  document.getElementById('formBlock').classList.add('off');
-  document.getElementById('okBlock').classList.add('on');
-  document.getElementById('pass').scrollIntoView({behavior:'smooth',block:'center'});
+  const text='ZA-PREDELAMI-ZVEZD|'+no+'|'+v('f-name').value+'|27.12.2026';
+  try{
+    await loadQRCode();
+    const box=v('qrBox');
+    box.replaceChildren();
+    new window.QRCode(box,{text,width:120,height:120,colorDark:'#241A11',
+      colorLight:'#F6EFE2',correctLevel:window.QRCode.CorrectLevel.M});
+    v('formBlock').classList.add('off');
+    v('okBlock').classList.add('on');
+    v('okBlock').scrollIntoView({behavior:'smooth',block:'center'});
+  }catch{
+    error.textContent='Не удалось создать QR-код. Попробуйте ещё раз.';
+    error.hidden=false;
+  }finally{
+    submit.disabled=false;
+  }
 });
-drawQR('ZA-PREDELAMI-ZVEZD|PREVIEW|27.12.2026');
-(function(){
-  const s=document.createElement('script');
-  s.src='https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js';
-  s.onload=()=>drawQR('ZA-PREDELAMI-ZVEZD|PREVIEW|27.12.2026');
-  s.onerror=()=>{};document.head.appendChild(s);
-})();
 
 /* ============ BOOT ============ */
 updateNav();
