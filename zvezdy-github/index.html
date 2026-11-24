@@ -363,16 +363,21 @@ main{position:relative;z-index:3}
 .sent.off{display:none}
 
 /* ================= MAP ================= */
-#map .sec-head{text-align:center}
+#map{--console-height:max(520px,46.15vw);background:#050505}
+#map::before{content:none}
+#map .map-heading{position:relative;z-index:3}
+#map .sec-head{text-align:center;margin-bottom:0}
 #map .sec-head .lead{margin-inline:auto}
-.mapbox{position:relative;width:100%;aspect-ratio:1846/852;min-height:520px;
+.mapbox{position:relative;width:100%;height:var(--console-height);
+  margin-top:calc(var(--console-height) * -.25);
   background:#080708 url(map-frame.webp) center / 100% 100% no-repeat}
 .map-screen{position:absolute;inset:37.6% 19.8% 22%;overflow:hidden;background:#161b22}
 .map-screen iframe{display:block;width:100%;height:100%;border:0;color-scheme:dark}
 #map .acts{justify-content:center}
 #map .btn-o{color:var(--gold-xl);border-color:var(--gold)}
 @media(max-width:600px){
-  .mapbox{min-height:465px;background-size:138% 100%}
+  #map{--console-height:465px}
+  .mapbox{background-size:138% 100%}
   .map-screen{inset-inline:8.4%}
 }
 .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
@@ -570,7 +575,7 @@ footer span{font-family:var(--f-d);font-size:10.5px;letter-spacing:.26em;text-tr
 
 <!-- ============ 06 MAP ============ -->
 <section class="sec dark on-dark" id="map">
-  <div class="wrap">
+  <div class="wrap map-heading">
     <div class="sec-head rv">
       <span class="lbl on-dark">Координаты старта</span>
       <h2 class="h-xl" style="margin-top:18px">Точка старта — <span class="it">Земля</span></h2>
